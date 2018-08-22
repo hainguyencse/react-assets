@@ -1,0 +1,52 @@
+{
+  "name": "voz-assets",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "description": "Assets for voz-next",
+  "scripts": {
+    "build-babel": "babel src -d build",
+    "prepare": "npm run build-babel",
+    "test": "jest",
+    "clean": "rimraf dist build docs",
+    "storybook": "start-storybook -p 9001 -c .storybook -s assets",
+    "export-storybook": "build-storybook -c .storybook -s assets -o docs",
+    "precommit": "npm test"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^4.0.0-alpha.16",
+    "@storybook/addon-info": "^4.0.0-alpha.16",
+    "@storybook/addon-notes": "^4.0.0-alpha.16",
+    "@storybook/addon-viewport": "^4.0.0-alpha.16",
+    "@storybook/react": "^4.0.0-alpha.16",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.21.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "jest": "^23.5.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "uuid": "^3.3.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  }
+}
