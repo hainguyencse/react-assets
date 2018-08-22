@@ -1,8 +1,8 @@
 {
-  "name": "voz-assets",
+  "name": "admin-assets",
   "version": "1.0.0",
   "main": "build/index.js",
-  "description": "Assets for voz-next",
+  "description": "Assets for admin",
   "scripts": {
     "build-babel": "babel src -d build",
     "prepare": "npm run build-babel",
