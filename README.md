@@ -3,7 +3,7 @@
 ### Import components
 - From CLI
 ```
-npm install git+ssh://git@github.com:inspilab/admin-assets.git
+npm install --save git+ssh://git@github.com:inspilab/admin-assets.git
 ```
 - In code
 ```
