@@ -15,4 +15,8 @@ export default [
     title: 'Danger',
     component: <Button onClick={action('clicked')} type="danger">Danger</Button>
   },
+  {
+    title: 'Block',
+    component: <Button onClick={action('clicked')} block>Block</Button>
+  },
 ];
