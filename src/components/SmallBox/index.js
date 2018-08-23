@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const BoxInfo = ({ number, title, bgColor, iconClass }) => (
-  <div className="info-box">
-    <span className={`info-box-icon ${bgColor}`}>
-      <i className={`fa ${iconClass}`}></i>
-    </span>
-    <div className="info-box-content">
-      <span className="info-box-text">{title}</span>
-      <span className="info-box-number">{number}</span>
+  <div class={`small-box ${bgColor}`}>
+    <div class="inner">
+      <h3>{number}</h3>
+      <p>{title}</p>
     </div>
+    <div class="icon">
+      <i class={`fa ${iconClass}`}></i>
+    </div>
+    <a href="#" class="small-box-footer">
+      More info <i class="fa fa-arrow-circle-right"></i>
+    </a>
   </div>
 );
 
@@ -27,7 +30,7 @@ BoxInfo.defaultProps = {
   title: 'Title',
   number: 'Number or text',
   bgColor: 'bg-aqua',
-  iconClass: 'fa-envelope-o'
+  iconClass: 'fa-shopping-cart'
 };
 
 export default BoxInfo;

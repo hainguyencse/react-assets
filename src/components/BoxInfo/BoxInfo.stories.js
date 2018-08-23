@@ -4,19 +4,19 @@ import BoxInfo from '.';
 
 export default [
   {
-    title: 'MESSAGES',
+    title: 'Messages',
     component: <BoxInfo title="MESSAGES" number="123"></BoxInfo>
   },
   {
-    title: 'BOOKMARKS',
+    title: 'Bookmarks',
     component: <BoxInfo title="BOOKMARKS" number="123" iconClass="fa-flag-o" bgColor="bg-yellow"></BoxInfo>
   },
   {
-    title: 'UPLOADS',
+    title: 'Uploads',
     component: <BoxInfo title="UPLOADS" number="123" iconClass="fa-files-o"></BoxInfo>
   },
   {
-    title: 'LIKES',
+    title: 'Likes',
     component: <BoxInfo title="LIKES" number="123" iconClass="fa-star-o"></BoxInfo>
   },
 ];

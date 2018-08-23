@@ -1,6 +1,7 @@
 import Avatar from './components/Avatar';
 import Box from './components/Box';
 import BoxInfo from './components/BoxInfo';
+import BoxInfo from './components/BoxInfoBackground';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Checkbox from './components/Checkbox';
@@ -18,6 +19,7 @@ export {
   Avatar,
   Box,
   BoxInfo,
+  BoxInfoBackground,
   Button,
   ButtonGroup,
   Checkbox,
