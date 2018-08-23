@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should render properly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Alert
+    content="Success"
+    onDismiss={[Function]}
+    title="Alert"
+    type="success"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="close"
+          onClick={[Function]}
+          type="button"
+        >
+          ×
+        </button>,
+        <h4>
+          <i
+            className="icon fa fa-check"
+          />
+           
+          Alert
+        </h4>,
+        "Success",
+      ],
+      "className": "alert alert-success alert-dismissible",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "×",
+          "className": "close",
+          "onClick": [Function],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": "×",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <i
+              className="icon fa fa-check"
+            />,
+            " ",
+            "Alert",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "icon fa fa-check",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          " ",
+          "Alert",
+        ],
+        "type": "h4",
+      },
+      "Success",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="close"
+            onClick={[Function]}
+            type="button"
+          >
+            ×
+          </button>,
+          <h4>
+            <i
+              className="icon fa fa-check"
+            />
+             
+            Alert
+          </h4>,
+          "Success",
+        ],
+        "className": "alert alert-success alert-dismissible",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "×",
+            "className": "close",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "×",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <i
+                className="icon fa fa-check"
+              />,
+              " ",
+              "Alert",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "icon fa fa-check",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            " ",
+            "Alert",
+          ],
+          "type": "h4",
+        },
+        "Success",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
