@@ -14,6 +14,7 @@ import RadioGroup from './components/RadioGroup';
 import Select from './components/Select';
 import Table from './components/Table';
 import TextArea from './components/TextArea';
+import Breadcrumb from './components/Breadcrumb';
 
 export {
   Avatar,
@@ -32,4 +33,5 @@ export {
   Select,
   Table,
   TextArea,
+  Breadcrumb,
 };
