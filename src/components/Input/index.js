@@ -27,7 +27,7 @@ const Input = ({ placeholder, value, disabled, label, type, message, onChange })
   );
 
   const renderHelpBlock = () => (
-    message ? <span className="help-block">{message}</span> : null
+    message ? <span className={`help-block col-sm-${label ? 10 : 12}`}>{message}</span> : null
   );
 
   return (
@@ -47,7 +47,10 @@ const Input = ({ placeholder, value, disabled, label, type, message, onChange })
         </div>
       </div>
 
-      <div className="row">{renderHelpBlock()}</div>
+      <div className="row">
+        {label ? <span className="col-sm-2"/> : null}
+        {renderHelpBlock()}
+      </div>
     </div>
   );
 };

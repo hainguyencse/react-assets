@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, addDecorator, storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
@@ -15,6 +16,12 @@ function loadStories() {
   });
 }
 
-addDecorator(withInfo);
+addDecorator(withInfo());
+
+addDecorator(story => (
+  <div style={{padding: '10px', paddingTop: '50px'}}>
+    {story()}
+  </div>
+));
 
 configure(loadStories, module);
