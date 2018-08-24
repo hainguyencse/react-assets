@@ -10,15 +10,19 @@ const BoxInfoBackground = ({title, bgColor, number, iconClass, percent }) => (
       <span className="info-box-text">{title}</span>
       <span className="info-box-number">{number}</span>
       <div className="progress">
-        <div className="progress-bar" style={{width: "70%"}}></div>
+        <div className="progress-bar" style={{ width: `${percent}%` }}></div>
       </div>
+      <span className="progress-description">
+        {percent}% Increase in 30 Days
+      </span>
     </div>
   </div>
 );
 
 BoxInfoBackground.propTypes = {
-  title: PropTypes.number,
+  title: PropTypes.string,
   number: PropTypes.string,
+  percent: PropTypes.number,
   bgColor: PropTypes.oneOf(['bg-green', 'bg-aqua', 'bg-yellow', 'bg-red']),
   /**
     * fontawesome.com/icons?d=gallery
