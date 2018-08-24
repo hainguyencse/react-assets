@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ placeholder, value, disabled, label, type, message, onChange }) => {
+const Input = ({
+  placeholder, value, disabled, label, type, inputType, message, onChange
+}) => {
   const renderLabelIcon = () => {
     switch (type) {
       case 'success': {
@@ -19,11 +21,13 @@ const Input = ({ placeholder, value, disabled, label, type, message, onChange })
   };
 
   const renderLabel = () => (
-    label ?
-      <label className="control-label col-sm-2" htmlFor="input">
-        {renderLabelIcon()}
-        {label}
-      </label> : null
+    label
+      ? (
+        <label className="control-label col-sm-2" htmlFor="input">
+          {renderLabelIcon()}
+          {label}
+        </label>
+      ) : null
   );
 
   const renderHelpBlock = () => (
@@ -39,7 +43,7 @@ const Input = ({ placeholder, value, disabled, label, type, message, onChange })
             id="input"
             className="form-control"
             placeholder={placeholder}
-            type="text"
+            type={inputType}
             value={value}
             disabled={disabled}
             onChange={onChange}
@@ -48,7 +52,7 @@ const Input = ({ placeholder, value, disabled, label, type, message, onChange })
       </div>
 
       <div className="row">
-        {label ? <span className="col-sm-2"/> : null}
+        {label ? <span className="col-sm-2" /> : null}
         {renderHelpBlock()}
       </div>
     </div>
@@ -60,6 +64,7 @@ Input.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   label: PropTypes.string,
+  inputType: PropTypes.oneOf(['text', 'password']),
   type: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   message: PropTypes.string,
   onChange: PropTypes.func,
@@ -71,6 +76,7 @@ Input.defaultProps = {
   disabled: false,
   label: '',
   type: 'default',
+  inputType: 'text',
   message: '',
   onChange: () => {},
 };
