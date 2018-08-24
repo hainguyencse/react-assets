@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BoxInfo = ({ number, title, bgColor, iconClass }) => (
+const SmallBox = ({ number, title, bgColor, iconClass }) => (
   <div class={`small-box ${bgColor}`}>
     <div class="inner">
       <h3>{number}</h3>
@@ -16,8 +16,8 @@ const BoxInfo = ({ number, title, bgColor, iconClass }) => (
   </div>
 );
 
-BoxInfo.propTypes = {
-  title: PropTypes.number,
+SmallBox.propTypes = {
+  title: PropTypes.string,
   number: PropTypes.string,
   bgColor: PropTypes.oneOf(['bg-green', 'bg-aqua', 'bg-yellow', 'bg-red']),
   /**
@@ -26,11 +26,11 @@ BoxInfo.propTypes = {
   iconClass: PropTypes.string,
 };
 
-BoxInfo.defaultProps = {
+SmallBox.defaultProps = {
   title: 'Title',
   number: 'Number or text',
   bgColor: 'bg-aqua',
   iconClass: 'fa-shopping-cart'
 };
 
-export default BoxInfo;
+export default SmallBox;
