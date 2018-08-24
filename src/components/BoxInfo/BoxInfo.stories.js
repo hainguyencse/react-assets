@@ -5,7 +5,7 @@ import BoxInfo from '.';
 export default [
   {
     title: 'Messages',
-    component: <BoxInfo title="MESSAGES" number="123"></BoxInfo>
+    component: <BoxInfo title="MESSAGES" number="123" fill></BoxInfo>
   },
   {
     title: 'Bookmarks',

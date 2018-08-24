@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BoxInfo = ({ number, title, bgColor, iconClass }) => (
-  <div className="info-box">
-    <span className={`info-box-icon ${bgColor}`}>
+const BoxInfo = ({ number, title, bgColor, iconClass, fill }) => (
+  <div className={`info-box ${fill ? `${bgColor}` : ''}`}>
+    <span className={`info-box-icon ${fill ? '' : `${bgColor}`}`}>
       <i className={`fa ${iconClass}`}></i>
     </span>
     <div className="info-box-content">
@@ -21,13 +21,15 @@ BoxInfo.propTypes = {
     * fontawesome.com/icons?d=gallery
     */
   iconClass: PropTypes.string,
+  fill: PropTypes.bool,
 };
 
 BoxInfo.defaultProps = {
   title: 'Title',
   number: 'Number or text',
   bgColor: 'bg-aqua',
-  iconClass: 'fa-envelope-o'
+  iconClass: 'fa-envelope-o',
+  fill: false,
 };
 
 export default BoxInfo;
