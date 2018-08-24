@@ -1,5 +1,7 @@
 import Avatar from './components/Avatar';
 import Box from './components/Box';
+import BoxInfo from './components/BoxInfo';
+import SmallBox from './components/SmallBox';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Checkbox from './components/Checkbox';
@@ -16,6 +18,8 @@ import TextArea from './components/TextArea';
 export {
   Avatar,
   Box,
+  BoxInfo,
+  SmallBox,
   Button,
   ButtonGroup,
   Checkbox,
