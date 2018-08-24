@@ -16,6 +16,6 @@ var data =  [
 export default [
   {
     title: 'Demo',
-    component: <Breadcrumb history={data} currentPage="Tien"></Breadcrumb>
+    component: <Breadcrumb history={data} currentPage="Title of current page"></Breadcrumb>
   }
 ];
