@@ -14,7 +14,7 @@ const BoxInfo = ({ number, title, bgColor, iconClass, fill }) => (
 );
 
 BoxInfo.propTypes = {
-  title: PropTypes.number,
+  title: PropTypes.string,
   number: PropTypes.string,
   bgColor: PropTypes.oneOf(['bg-green', 'bg-aqua', 'bg-yellow', 'bg-red']),
   /**

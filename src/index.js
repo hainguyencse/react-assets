@@ -15,6 +15,7 @@ import Select from './components/Select';
 import Table from './components/Table';
 import TextArea from './components/TextArea';
 import Breadcrumb from './components/Breadcrumb';
+import Tooltip from './components/Tooltip';
 
 export {
   Avatar,
@@ -34,4 +35,5 @@ export {
   Table,
   TextArea,
   Breadcrumb,
+  Tooltip,
 };
