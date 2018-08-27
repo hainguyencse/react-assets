@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SmallBox = ({ number, title, bgColor, iconClass }) => (
-  <div class={`small-box ${bgColor}`}>
-    <div class="inner">
+  <div className={`small-box ${bgColor}`}>
+    <div className="inner">
       <h3>{number}</h3>
       <p>{title}</p>
     </div>
-    <div class="icon">
-      <i class={`fa ${iconClass}`}></i>
+    <div className="icon">
+      <i className={`fa ${iconClass}`}></i>
     </div>
-    <a href="#" class="small-box-footer">
-      More info <i class="fa fa-arrow-circle-right"></i>
+    <a href="#" className="small-box-footer">
+      More info <i className="fa fa-arrow-circle-right"></i>
     </a>
   </div>
 );
