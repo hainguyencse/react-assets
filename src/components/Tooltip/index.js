@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const Tooltip = ({ visible, position, text }) => (
   <div className={`tooltip fade ${position} ${visible ? 'in' : ''}`} role="tooltip">
-    <div className="tooltip-arrow"></div> 
-    <div className="tooltip-inner">{text}</div> 
+    <div className="tooltip-arrow" />
+    <div className="tooltip-inner">{text}</div>
   </div>
 );
 

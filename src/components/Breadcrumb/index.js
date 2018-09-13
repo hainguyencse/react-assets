@@ -1,23 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Breadcrumb = ({ currentPage, history }) => (
-  <ol class="breadcrumb">
+const Breadcrumb = ({ history }) => (
+  <ol className="breadcrumb">
     {
-      history.map(item =>(
-        <li key={item.itemText}>
-          <a href={item.itemUrl}>{item.itemText}</a>
-        </li>
-      ))
+      history.map((item, index) => {
+        if (index === history.length - 1) {
+          return (
+            <li key={item.title} className="active">{item.title}</li>
+          );
+        }
+        return (
+          <li key={item.title}>
+            <Link to={item.url}>{item.title}</Link>
+          </li>
+        );
+      })
     }
-    <li className="active">{currentPage}</li>
   </ol>
 );
 
 Breadcrumb.propTypes = {
-  currentPage: PropTypes.string,
-  history: PropTypes.array
+  history: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+  })),
 };
 
+Breadcrumb.defaultProps = {
+  history: [],
+};
 
 export default Breadcrumb;

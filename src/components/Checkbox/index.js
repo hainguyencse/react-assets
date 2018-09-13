@@ -19,7 +19,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   label: '',
-  checked: false,
+  checked: undefined,
   onChange: () => {},
   disabled: false,
 };
