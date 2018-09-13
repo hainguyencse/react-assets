@@ -13,7 +13,6 @@ import Radio from './components/Radio';
 import RadioGroup from './components/RadioGroup';
 import Select from './components/Select';
 import Table from './components/Table';
-import Listings from './components/Listings';
 import TextArea from './components/TextArea';
 import Breadcrumb from './components/Breadcrumb';
 import Tooltip from './components/Tooltip';
@@ -34,7 +33,6 @@ export {
   RadioGroup,
   Select,
   Table,
-  Listings,
   TextArea,
   Breadcrumb,
   Tooltip,
