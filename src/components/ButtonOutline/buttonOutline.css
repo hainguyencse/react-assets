@@ -1,0 +1,19 @@
+.btn-outline {
+	background: none;
+}
+
+.btn-outline.btn-primary {
+	color: #367fa9;
+}
+
+.btn-outline.btn-success {
+	color: #008d4c;
+}
+
+.btn-outline.btn-info {
+	color: #00acd6;
+}
+
+.btn-outline.btn-danger {
+	color: #d73925;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  placeholder, value, disabled, label, type, inputType, message, onChange
+  placeholder, value, disabled, label, type, inputType, message, autoComplete, onChange
 }) => {
   const renderLabelIcon = () => {
     switch (type) {
@@ -23,7 +23,7 @@ const Input = ({
   const renderLabel = () => (
     label
       ? (
-        <label className="control-label col-sm-2" htmlFor="input">
+        <label htmlFor="input">
           {renderLabelIcon()}
           {label}
         </label>
@@ -36,20 +36,17 @@ const Input = ({
 
   return (
     <div className={`form-horizontal form-group ${type !== 'default' ? `has-${type}` : ''}`}>
-      <div className="row">
-        {renderLabel()}
-        <div className={`col-sm-${label ? 10 : 12}`}>
-          <input
-            id="input"
-            className="form-control"
-            placeholder={placeholder}
-            type={inputType}
-            value={value}
-            disabled={disabled}
-            onChange={onChange}
-          />
-        </div>
-      </div>
+      {renderLabel()}
+      <input
+        id="input"
+        className="form-control"
+        placeholder={placeholder}
+        type={inputType}
+        value={value}
+        disabled={disabled}
+        onChange={onChange}
+        autoComplete={autoComplete ? 'on' : 'off'}
+      />
 
       <div className="row">
         {label ? <span className="col-sm-2" /> : null}
@@ -63,6 +60,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   disabled: PropTypes.bool,
+  autoComplete: PropTypes.bool,
   label: PropTypes.string,
   inputType: PropTypes.oneOf(['text', 'password']),
   type: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
@@ -72,8 +70,9 @@ Input.propTypes = {
 
 Input.defaultProps = {
   placeholder: '',
-  value: '',
+  value: undefined,
   disabled: false,
+  autoComplete: false,
   label: '',
   type: 'default',
   inputType: 'text',

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import './buttonOutline.css';
 
 /**
  * An ordinary button
  */
-const Button = ({
+const ButtonOutline = ({
   children, onClick, block, type, disabled, innerType, size 
 }) => (
   <button
@@ -16,7 +17,7 @@ const Button = ({
   </button>
 );
 
-Button.propTypes = {
+ButtonOutline.propTypes = {
   /**
    * Any elements to display in the button
    */
@@ -44,7 +45,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['nor', 'lg', 'sm', 'xs']),
 };
 
-Button.defaultProps = {
+ButtonOutline.defaultProps = {
   children: 'Button',
   onClick: () => {},
   block: false,
@@ -54,4 +55,4 @@ Button.defaultProps = {
   size: 'nor',
 };
 
-export default Button;
+export default ButtonOutline;

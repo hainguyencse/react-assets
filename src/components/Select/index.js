@@ -33,7 +33,7 @@ Select.propTypes = {
 Select.defaultProps = {
   label: '',
   options: [],
-  selected: '',
+  selected: undefined,
   onChange: () => {},
   disabled: false,
 };
