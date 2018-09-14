@@ -4,6 +4,7 @@ import BoxInfo from './BoxInfo';
 import SmallBox from './SmallBox';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
+import ButtonOutline from './ButtonOutline';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
 import Input from './Input';
@@ -25,6 +26,7 @@ export {
   SmallBox,
   Button,
   ButtonGroup,
+  ButtonOutline,
   Checkbox,
   CheckboxGroup,
   Input,
