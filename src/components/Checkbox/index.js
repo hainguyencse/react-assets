@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CheckBox = ({ label, checked, onChange, disabled }) => (
-  <div className="checkBox">
+  <div className="checkbox">
     <label>
       <input type="checkbox" checked={checked} onChange={onChange} disabled={disabled}/>
       &nbsp;{label}

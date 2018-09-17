@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from '../Checkbox';
+import CheckBox from '../CheckBox';
 import Button from '../Button';
 
 const verticalStyle = { verticalAlign: 'middle', whiteSpace: 'nowrap' };
@@ -21,7 +21,7 @@ const Table = ({ data, hideHeader, customHeader, selectable, onItemSelect, actio
     !hideHeader ?
       <tr>
         { selectable ? <th style={{...verticalStyle, width: 10}}>
-          <Checkbox />
+          <CheckBox />
         </th> : null }
         {
           (customHeader || headers).map(header => (
@@ -43,7 +43,7 @@ const Table = ({ data, hideHeader, customHeader, selectable, onItemSelect, actio
   const renderData = () => data.map(datum => (
     <tr key={datum.id || undefined}>
       { selectable ? <td style={{ ...verticalStyle, width: 10 }}>
-        <Checkbox onChange={handleSelectItem.bind(null, datum)} />
+        <CheckBox onChange={handleSelectItem.bind(null, datum)} />
       </td> : null }
 
       {
