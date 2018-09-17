@@ -5,7 +5,7 @@ const CheckBox = ({ label, checked, onChange, disabled }) => (
   <div className="checkBox">
     <label>
       <input type="checkbox" checked={checked} onChange={onChange} disabled={disabled}/>
-      {label}
+      &nbsp;{label}
     </label>
   </div>
 );
