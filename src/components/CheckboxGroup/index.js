@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Checkbox from "../Checkbox";
+import CheckBox from "../CheckBox";
 
-const CheckboxGroup = ({ options, onChange }) => {
-  const handleCheckboxChange = (id, event) => {
+const CheckBoxGroup = ({ options, onChange }) => {
+  const handleCheckBoxChange = (id, event) => {
     onChange(id, event.target.checked);
   };
 
@@ -12,19 +12,19 @@ const CheckboxGroup = ({ options, onChange }) => {
     <div className="form-group">
       {
         options.map(option => (
-          <Checkbox
+          <CheckBox
             key={option.id}
             label={option.label}
             checked={option.checked}
             disabled={option.disabled}
-            onChange={handleCheckboxChange.bind(this, option.id)} />
+            onChange={handleCheckBoxChange.bind(this, option.id)} />
         ))
       }
     </div>
   );
 };
 
-CheckboxGroup.propTypes = {
+CheckBoxGroup.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,
@@ -34,9 +34,9 @@ CheckboxGroup.propTypes = {
   onChange: PropTypes.func,
 };
 
-CheckboxGroup.defaultProps = {
+CheckBoxGroup.defaultProps = {
   options: [],
   onChange: () => {},
 };
 
-export default CheckboxGroup;
+export default CheckBoxGroup;

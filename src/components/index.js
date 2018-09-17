@@ -5,8 +5,8 @@ import SmallBox from './SmallBox';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import ButtonOutline from './ButtonOutline';
-import Checkbox from './Checkbox';
-import CheckboxGroup from './CheckboxGroup';
+import CheckBox from './CheckBox';
+import CheckBoxGroup from './CheckBoxGroup';
 import Input from './Input';
 import Modal from './Modal';
 import Pagination from './Pagination';
@@ -27,8 +27,8 @@ export {
   Button,
   ButtonGroup,
   ButtonOutline,
-  Checkbox,
-  CheckboxGroup,
+  CheckBox,
+  CheckBoxGroup,
   Input,
   Modal,
   Pagination,
