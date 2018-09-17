@@ -36,7 +36,6 @@ const Listings = ({ listingsTitle, data, customHeader, selectable, onItemSelect,
         </div>
       </div>
     }
-    noHeader
   />
 );
 
