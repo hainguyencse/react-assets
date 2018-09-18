@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Select = ({ label, options, selected, onChange, disabled }) => {
+const Select = ({ label, options, selected, onChange, disabled, multiple }) => {
 
   const handleSelectChange = (event) => {
     onChange(event.target.value);
@@ -10,7 +10,7 @@ const Select = ({ label, options, selected, onChange, disabled }) => {
   return (
     <div className="form-group">
       {label ? <label>{label}</label> : null}
-      <select className="form-control" value={selected} onChange={handleSelectChange} disabled={disabled}>
+      <select className="form-control" value={selected} onChange={handleSelectChange} disabled={disabled} multiple={`${multiple ? 'multiple' : null}`} >
         {options.map(option => (
           <option key={option.id} value={option.id}>{option.content}</option>
         ))}
@@ -28,6 +28,7 @@ Select.propTypes = {
   selected: PropTypes.string,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  multiple: PropTypes.bool,
 };
 
 Select.defaultProps = {
@@ -36,6 +37,7 @@ Select.defaultProps = {
   selected: undefined,
   onChange: () => {},
   disabled: false,
+  multiple: false,
 };
 
 export default Select;
