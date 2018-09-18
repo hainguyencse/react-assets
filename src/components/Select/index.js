@@ -10,7 +10,7 @@ const Select = ({ label, options, selected, onChange, disabled, multiple }) => {
   return (
     <div className="form-group">
       {label ? <label>{label}</label> : null}
-      <select className="form-control" value={selected} onChange={handleSelectChange} disabled={disabled} multiple={`${multiple ? 'multiple' : null}`} >
+      <select className="form-control" value={selected} onChange={handleSelectChange} disabled={disabled} multiple={multiple} >
         {options.map(option => (
           <option key={option.id} value={option.id}>{option.content}</option>
         ))}
