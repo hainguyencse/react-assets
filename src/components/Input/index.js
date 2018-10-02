@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  placeholder, value, disabled, label, type, inputType, message, autoComplete, onChange
+  placeholder, value, disabled, label, type, inputType, message, autoComplete, subText, onChange
 }) => {
   const renderLabelIcon = () => {
     switch (type) {
@@ -47,7 +47,7 @@ const Input = ({
         onChange={onChange}
         autoComplete={autoComplete ? 'on' : 'off'}
       />
-
+      <span>{subText}</span>
       <div className="row">
         {label ? <span className="col-sm-2" /> : null}
         {renderHelpBlock()}
@@ -59,6 +59,7 @@ const Input = ({
 Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
+  subText: PropTypes.string,
   disabled: PropTypes.bool,
   autoComplete: PropTypes.bool,
   label: PropTypes.string,
@@ -70,6 +71,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   placeholder: '',
+  subText: '',
   value: undefined,
   disabled: false,
   autoComplete: false,
