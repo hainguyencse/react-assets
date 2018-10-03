@@ -5,9 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Button
     block={true}
-    disabled={false}
-    innerType="button"
-    onClick={[Function]}
+    displayType="default"
     size="nor"
     type="primary"
   >
@@ -26,9 +24,8 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": "Click me",
-      "className": "btn btn-block btn-primary  btn-nor",
-      "onClick": [Function],
-      "type": "button",
+      "className": "btn btn-block btn-default  btn-nor",
+      "type": "primary",
     },
     "ref": null,
     "rendered": "Click me",
@@ -41,9 +38,8 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": "Click me",
-        "className": "btn btn-block btn-primary  btn-nor",
-        "onClick": [Function],
-        "type": "button",
+        "className": "btn btn-block btn-default  btn-nor",
+        "type": "primary",
       },
       "ref": null,
       "rendered": "Click me",

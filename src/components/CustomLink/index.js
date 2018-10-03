@@ -3,8 +3,16 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
+const isActive = (location, to) => {
+  if (to === '/') {
+    return location.pathname === to;
+  }
+
+  return location.pathname.startsWith(to);
+};
+
 const CustomLink = ({ location, to, children }) => (
-  <li className={location.pathname === to ? 'active' : undefined}>
+  <li className={isActive(location, to) ? 'active' : undefined}>
     <Link to={to}>
       {children}
     </Link>

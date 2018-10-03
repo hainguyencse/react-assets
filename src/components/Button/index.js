@@ -4,13 +4,10 @@ import PropTypes from 'prop-types';
 /**
  * An ordinary button
  */
-const Button = ({
-  children, onClick, block, type, disabled, innerType, size 
-}) => (
+const Button = ({ children, block, displayType, size, ...buttonProps }) => (
   <button
-    type={innerType}
-    className={`btn ${block ? 'btn-block' : ''} btn-${type} ${disabled ? 'disabled' : ''} btn-${size}`}
-    onClick={disabled ? () => {} : onClick}
+    className={`btn ${block ? 'btn-block' : ''} btn-${displayType} ${buttonProps.disabled ? 'disabled' : ''} btn-${size}`}
+    {...buttonProps}
   >
     {children}
   </button>
@@ -22,35 +19,23 @@ Button.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * Callback when button is clicked
-   */
-  onClick: PropTypes.func,
-  /**
    * Toggle block type button
    */
   block: PropTypes.bool,
   /**
-   * Toggle disabled button
-   */
-  disabled: PropTypes.bool,
-  /**
    * Type of button
    */
-  type: PropTypes.oneOf(['default', 'primary', 'warning', 'danger']),
+  displayType: PropTypes.oneOf(['default', 'primary', 'warning', 'danger']),
   /**
-   * Type of underlying button HTML element
+   * Size of the button
    */
-  innerType: PropTypes.string,
   size: PropTypes.oneOf(['nor', 'lg', 'sm', 'xs']),
 };
 
 Button.defaultProps = {
-  children: 'Button',
-  onClick: () => {},
+  children: null,
   block: false,
-  disabled: false,
-  type: 'default',
-  innerType: 'button',
+  displayType: 'default',
   size: 'nor',
 };
 
