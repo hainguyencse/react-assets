@@ -3,7 +3,9 @@ import { Field } from 'formik';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 
-import { INPUT_BORDER, INPUT_TEXT_COLOR, PRIMARY } from '../../constants/colors';
+const PRIMARY = '#3c8dbc';
+const INPUT_BORDER = '#d2d6de';
+const INPUT_TEXT_COLOR = '#555';
 
 export const customSelectStyles = {
   control: (styles, { isFocused, isSelected }) => ({
