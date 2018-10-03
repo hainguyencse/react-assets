@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Input wraps the html input with additional functions
+ * @param label - the label displayed beside the input
+ * @param displayType - the visual style of the input
+ * @param message - the message to display under the input
+ * @param inputProps - additional props supplied to the inner input
+ * @returns {*}
+ * @constructor
+ */
 const Input = ({
-  placeholder, value, disabled, label, type, inputType, message, autoComplete, subText, onChange
+  label, displayType, message, ...inputProps
 }) => {
   const renderLabelIcon = () => {
-    switch (type) {
+    switch (displayType) {
       case 'success': {
         return <i className="fa fa-check" />;
       }
@@ -34,20 +43,16 @@ const Input = ({
     message ? <span className={`help-block col-sm-${label ? 10 : 12}`}>{message}</span> : null
   );
 
+  // TODO: unique id for input
   return (
-    <div className={`form-horizontal form-group ${type !== 'default' ? `has-${type}` : ''}`}>
+    <div className={`form-horizontal form-group ${displayType !== 'default' ? `has-${displayType}` : ''}`}>
       {renderLabel()}
       <input
         id="input"
         className="form-control"
-        placeholder={placeholder}
-        type={inputType}
-        value={value}
-        disabled={disabled}
-        onChange={onChange}
-        autoComplete={autoComplete ? 'on' : 'off'}
+        {...inputProps}
       />
-      <span>{subText}</span>
+
       <div className="row">
         {label ? <span className="col-sm-2" /> : null}
         {renderHelpBlock()}
@@ -57,29 +62,24 @@ const Input = ({
 };
 
 Input.propTypes = {
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  subText: PropTypes.string,
-  disabled: PropTypes.bool,
-  autoComplete: PropTypes.bool,
+  /**
+   * Label of the input
+   */
   label: PropTypes.string,
-  inputType: PropTypes.oneOf(['text', 'password']),
-  type: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
+  /**
+   * Visual style of the input
+   */
+  displayType: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
+  /**
+   * Additional message to display under the input
+   */
   message: PropTypes.string,
-  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
-  placeholder: '',
-  subText: '',
-  value: undefined,
-  disabled: false,
-  autoComplete: false,
   label: '',
-  type: 'default',
-  inputType: 'text',
+  displayType: 'default',
   message: '',
-  onChange: () => {},
 };
 
 export default Input;

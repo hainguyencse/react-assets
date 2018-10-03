@@ -1,40 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = ({ placeholder, value, rows, disabled, label, onChange, subText }) => (
+const TextArea = ({ label, ...textAreaProps }) => (
   <div className="form-group">
-    <label>{label}</label>
+    {label ? <label>{label}</label> : null}
     <textarea
       className="form-control"
-      rows={rows}
-      placeholder={placeholder}
-      value={value}
-      disabled={disabled}
-      onChange={onChange}
+      {...textAreaProps}
       style={{ resize: 'vertical' }}
     />
-    <span>{subText}</span>
   </div>
 );
 
 TextArea.propTypes = {
+  /**
+   * Label of the text area
+   */
   label: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  subText: PropTypes.string,
-  rows: PropTypes.number,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
 };
 
 TextArea.defaultProps = {
-  labe: null,
-  placeholder: '',
-  subText: '',
-  value: undefined,
-  rows: 3,
-  disabled: false,
-  onChange: () => {},
+  label: '',
 };
 
 export default TextArea;

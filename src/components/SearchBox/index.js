@@ -3,49 +3,52 @@ import PropTypes from 'prop-types';
 
 import Input from '../Input';
 import Select from '../Select';
-import Button from '../Button';
-import Box from '../Box';
 
 class SearchBox extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    input: this.props.inputValue || '',
+    selectedField: this.props.selectedField
+      || (this.props.fields.length > 0 && this.props.fields[0].id) || '',
+  };
 
-    const { fields } = this.props;
+  componentDidUpdate(prevProps) {
+    const { inputValue, selectedField, fields } = this.props;
+    const { inputValue: prevInputValue, selectedField: prevSelectedField } = prevProps;
 
-    this.input = '';
-    this.selectedField = '';
-
-    if (fields.length > 0) {
-      this.selectedField = fields[0].id;
+    if (inputValue !== prevInputValue || selectedField !== prevSelectedField) {
+      // eslint-disable-next-line
+      this.setState({ input: inputValue || '', selectedField: selectedField || (fields.length > 0 && fields[0].id) || '' });
     }
   }
 
-  handleFieldChange(fieldId) {
-    this.selectedField = fieldId;
+  handleFieldChange(event) {
+    this.setState({ selectedField: event.target.value });
   }
 
   handleInputChange(event) {
-    this.input = event.target.value;
+    this.setState({ input: event.target.value });
   }
 
   handleSearchSubmit(event) {
     const { onSubmit } = this.props;
-    onSubmit(this.selectedField, this.input);
+    const { input, selectedField } = this.state;
+    onSubmit(selectedField, input);
 
     event.preventDefault();
   }
 
   render() {
     const { fields } = this.props;
+    const { input, selectedField } = this.state;
 
     return (
       <form onSubmit={this.handleSearchSubmit.bind(this)}>
         <div className="row">
           <div className="col-sm-8">
-            <Input placeholder="Search keyword…" onChange={this.handleInputChange.bind(this)}/>
+            <Input placeholder="Search keyword…" value={input} onChange={this.handleInputChange.bind(this)} />
           </div>
           <div className="col-sm-4">
-            <Select options={fields} onChange={this.handleFieldChange.bind(this)} />
+            <Select options={fields} value={selectedField} onChange={this.handleFieldChange.bind(this)} />
           </div>
         </div>
       </form>
@@ -54,6 +57,8 @@ class SearchBox extends React.Component {
 }
 
 SearchBox.propTypes = {
+  inputValue: PropTypes.string,
+  selectedField: PropTypes.string,
   fields: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     content: PropTypes.string,
@@ -62,6 +67,8 @@ SearchBox.propTypes = {
 };
 
 SearchBox.defaultProps = {
+  inputValue: undefined,
+  selectedField: undefined,
   fields: [],
   onSubmit: () => {},
 };

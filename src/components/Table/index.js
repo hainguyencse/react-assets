@@ -1,111 +1,198 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckBox from '../CheckBox';
+import Checkbox from '../CheckBox';
 import Button from '../Button';
+
+export const ASCENDING = 'asc';
+export const DESCENDING = 'desc';
 
 const verticalStyle = { verticalAlign: 'middle', whiteSpace: 'nowrap' };
 
-const Table = ({ data, hideHeader, customHeader, selectable, onItemSelect, actions }) => {
-  const generateHeader = () => {
-    if (data.length === 0) {
-      return [];
-    }
+const flipDirection = (direction) => {
+  if (direction === ASCENDING) {
+    return DESCENDING;
+  }
+  return ASCENDING
+};
 
-    const firstRow = data[0];
-    return Object.keys(firstRow);
+class Table extends React.Component {
+  handleSelectItem = (item, e) => {
+    this.props.onItemSelect(item, e.target.checked);
   };
 
-  const headers = generateHeader();
-
-  const renderHeader = () => (
-    !hideHeader ?
-      <tr>
-        { selectable ? <th style={{...verticalStyle, width: 10}}>
-          <CheckBox />
-        </th> : null }
-        {
-          (customHeader || headers).map(header => (
-            <th key={header} style={verticalStyle}>{header}</th>
-          ))
-        }
-        { actions.length > 0 ? <th style={verticalStyle}>Actions</th> : null }
-      </tr> : null
-  );
-
-  const handleSelectItem = (item, e) => {
-    onItemSelect(item, e.target.checked);
-  };
-
-  const handleExecuteAction = (item, callback) => {
+  handleExecuteAction = (item, callback) => {
     callback(item);
   };
 
-  const renderData = () => data.map(datum => (
-    <tr key={datum.id || undefined}>
-      { selectable ? <td style={{ ...verticalStyle, width: 10 }}>
-        <CheckBox onChange={handleSelectItem.bind(null, datum)} />
-      </td> : null }
+  handleHeaderClick = ({ field, isSorted, sortDirection }, e) => {
+    const { onSortHeader } = this.props;
 
-      {
-        headers.map(header => (
-          <td key={datum.id ? `${datum.id}_${header}` : undefined} style={verticalStyle}>
-            {datum[header] || 'undefined'}
-          </td>
-          )
-        )
-      }
+    e.preventDefault();
 
-      { actions.length > 0 ?
+    onSortHeader({
+      sortBy: field,
+      sortDirection: isSorted ? flipDirection(sortDirection) : ASCENDING,
+    });
+  };
+
+  renderHeader() {
+    const { hideHeader, selectable, actions, sortParams, columns } = this.props;
+
+    let sortBy = '';
+    let sortDirection = ASCENDING;
+    if (sortParams) {
+      sortBy = sortParams.sortBy;
+      sortDirection = sortParams.sortDirection;
+    }
+
+    if (hideHeader) {
+      return null;
+    }
+
+    return (
+      <tr>
+        {
+          selectable ?
+            <th style={{...verticalStyle }}>
+              <div style={{ height: 5, position: 'relative', top: -15 }}>
+                <Checkbox />
+              </div>
+            </th> :
+            null
+        }
+        {
+          columns.map(col => (
+            <th
+              key={col.id}
+              className={col.notSortable ? '' : `sorting${sortBy === col.id ? `_${sortDirection}` : ''}`}
+              style={verticalStyle}
+              onClick={col.notSortable ?
+                () => {} :
+                this.handleHeaderClick.bind(null, {
+                  field: col.id,
+                  isSorted: sortBy === col.id,
+                  sortDirection })}>
+              {col.title}
+            </th>
+          ))
+        }
+        { actions.length > 0 ? <th style={verticalStyle}>Actions</th> : null }
+      </tr>
+    );
+  }
+
+  renderRow(datum) {
+    const { columns } = this.props;
+
+    return columns.map(col => (
+      <td key={col.id} style={verticalStyle}>
+        {col.render(datum)}
+      </td>
+      )
+    );
+  }
+
+  renderActions(datum) {
+    const { actions } = this.props;
+
+    return (
+      actions.length > 0 ?
         <td style={verticalStyle}>
           {actions.map((action, index) =>
             <span
-              key={datum.id ? `${datum.id}_${action.title}` : undefined}
+              key={action.title}
               style={{ paddingLeft: index > 0 ? 10 : 0, paddingBottom: 5, display: 'inline-block' }}>
               <Button
-                onClick={handleExecuteAction.bind(null, datum, action.callback)}
-                type={action.type}
-                size={action.size}>
-                {action.title}
+                onClick={this.handleExecuteAction.bind(null, datum, action.callback)}
+                displayType={action.type}
+                size="xs"
+                data-toogle="tooltip"
+                title={action.title}
+              >
+                {action.render()}
               </Button>
             </span>
           )}
         </td>
-        : null }
-    </tr>
-  ));
+        : null
+    );
+  }
 
-  return (
-    <div className="box-body table-responsive no-padding">
-      <table className="table table-hover table-striped">
-        <tbody>
-          {renderHeader()}
-          {renderData()}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+  renderData() {
+    const { selectable, data } = this.props;
+
+    return data.map(datum => (
+      <tr key={datum.id || undefined}>
+        { selectable ? <td style={{ ...verticalStyle, width: 10 }}>
+          <Checkbox onChange={this.handleSelectItem.bind(null, datum)} />
+        </td> : null }
+
+        {this.renderRow(datum)}
+
+        {this.renderActions(datum)}
+      </tr>
+    ));
+  }
+
+  render() {
+    return (
+      <div className="box-body table-responsive no-padding">
+        <table className="table table-hover table-striped dataTable">
+          <thead>
+            {this.renderHeader()}
+          </thead>
+          <tbody>
+            {this.renderData()}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
 
 Table.propTypes = {
+  /**
+   * DataProps
+   */
   data: PropTypes.array,
   hideHeader: PropTypes.bool,
-  customHeader: PropTypes.array,
+  columns: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    render: PropTypes.func.isRequired,
+    notSortable: PropTypes.bool,
+  })).isRequired,
+  /**
+   * SelectableProps
+   */
   selectable: PropTypes.bool,
   onItemSelect: PropTypes.func,
+  /**
+   * ActionsProps
+   */
   actions: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
-    callback: PropTypes.func,
+    render: PropTypes.func.isRequired,
+    callback: PropTypes.func.isRequired,
     type: PropTypes.oneOf(['default', 'primary', 'danger']),
   })),
+  /**
+   * SortingProps
+   */
+  onSortHeader: PropTypes.func,
+  sortParams: PropTypes.shape({
+    sortBy: PropTypes.string,
+    sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  }),
 };
 
 Table.defaultProps = {
   data: [],
   hideHeader: false,
-  customHeader: null,
   selectable: false,
   onItemSelect: () => {},
   actions: [],
+  onSortHeader: () => {},
 };
 
 export default Table;
