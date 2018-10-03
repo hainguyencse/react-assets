@@ -18,6 +18,11 @@ import Listings from './components/Listings';
 import TextArea from './components/TextArea';
 import Breadcrumb from './components/Breadcrumb';
 import Tooltip from './components/Tooltip';
+import CheckboxField from './components/CheckboxField';
+import CreateableSelectField from './components/CreatableSelectField';
+import InputField from './components/InputField';
+import SelectField from './components/SelectField';
+import TextAreaField from './components/TextAreaField';
 
 export {
   Avatar,
@@ -40,4 +45,9 @@ export {
   TextArea,
   Breadcrumb,
   Tooltip,
+  CheckboxField,
+  CreateableSelectField,
+  InputField,
+  SelectField,
+  TextAreaField,
 };
