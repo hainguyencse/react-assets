@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, FieldArray } from 'formik';
 
-import Button from '../Button';
+import Button from './Button';
 
 const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
   <ArrayField
