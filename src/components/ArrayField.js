@@ -15,7 +15,7 @@ const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
             <div key={index}>
               <Field name={`${name}.${index}`} />
               <Button
-                onClick={onClick={() => arrayHelpers.remove(index)}}
+                onClick={() => arrayHelpers.remove(index)}
                 displayType={'danger'}
                 size="xs"
                 data-toogle="tooltip"
@@ -24,7 +24,7 @@ const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
                 -
               </Button>
               <Button
-                onClick={onClick={() => arrayHelpers.insert(index)}}
+                onClick={() => arrayHelpers.insert(index)}
                 displayType={'primary'}
                 size="xs"
                 data-toogle="tooltip"
@@ -36,7 +36,7 @@ const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
           ))
         ) : (
           <Button
-            onClick={onClick={() => arrayHelpers.push('')}}
+            onClick={() => arrayHelpers.push('')}
             displayType={'primary'}
             size="xs"
             data-toogle="tooltip"
