@@ -5,7 +5,7 @@ import { Field, FieldArray } from 'formik';
 import Button from './Button';
 
 const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
-  <ArrayField
+  <FieldArray
     name={name}
     render={arrayHelpers => (
       <div>
