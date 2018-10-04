@@ -14,8 +14,9 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
           {arrayData && arrayData.length > 0 ? (
             arrayData.map((item, index) => (
               <div key={index}>
-
-                <Field name={`${name}.${index}`} /> &nbsp;
+                <div style={{ width: 'calc(100% - 110px)' }}>
+                  <Field name={`${name}.${index}`} />
+                </div>
                 <Button
                   onClick={() => arrayHelpers.remove(index)}
                   displayType={'danger'}
