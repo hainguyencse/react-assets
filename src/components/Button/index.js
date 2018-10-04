@@ -25,7 +25,7 @@ Button.propTypes = {
   /**
    * Type of button
    */
-  displayType: PropTypes.oneOf(['default', 'primary', 'warning', 'danger']),
+  displayType: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger']),
   /**
    * Size of the button
    */
