@@ -4,14 +4,14 @@ import { Field, FieldArray } from 'formik';
 
 import Button from './Button';
 
-const ArrayField = ({ name, arrayData, validate, ...inputProps }) => (
+const ArrayField = ({ name, arrayData, label, validate, ...inputProps }) => (
   <FieldArray
     name={name}
     render={arrayHelpers => (
       <div>
         <label>{label}</label>
         {arrayData && arrayData.length > 0 ? (
-          arrayData.map((friend, index) => (
+          arrayData.map((item, index) => (
             <div key={index}>
               <Field name={`${name}.${index}`} />
               <Button
