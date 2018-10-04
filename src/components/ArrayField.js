@@ -14,7 +14,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
           {arrayData && arrayData.length > 0 ? (
             arrayData.map((item, index) => (
               <div key={index}>
-                <div style={{ width: 'calc(100% - 110px)' }}>
+                <div style={{ width: 'calc(100% - 100px)', display: 'inline-block', marginRight: '10px' }}>
                   <Field name={`${name}.${index}`} />
                 </div>
                 <Button
