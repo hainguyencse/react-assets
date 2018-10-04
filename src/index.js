@@ -24,6 +24,7 @@ import InputField from './components/InputField';
 import ArrayField from './components/ArrayField';
 import SelectField from './components/SelectField';
 import TextAreaField from './components/TextAreaField';
+import WYSIWYGField from './components/WYSIWYGField';
 
 export {
   Avatar,
@@ -51,5 +52,6 @@ export {
   InputField,
   SelectField,
   TextAreaField,
-  ArrayField
+  ArrayField,
+  WYSIWYGField
 };
