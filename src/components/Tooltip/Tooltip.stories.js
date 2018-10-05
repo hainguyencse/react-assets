@@ -5,7 +5,7 @@ import Tooltip from '.';
 export default [
   {
     title: 'Top',
-    component: <Tooltip message="3 adults, 1 children, 2 infants" position="top" children="Hover me!"></Tooltip>
+    component: <Tooltip message="3 adults, 1 children, 2 infants" width="130" position="top" children="Hover me!"></Tooltip>
   },
   // {
   //   title: 'Bottom',

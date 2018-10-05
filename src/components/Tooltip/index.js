@@ -23,6 +23,7 @@ class Tooltip extends Component {
   render() {
     let message = this.props.message;
     let position = this.props.position;
+    let width = this.props.width;
 
     return (
       <div className='tooltip-hover'
@@ -32,7 +33,7 @@ class Tooltip extends Component {
         {this.state.displayTooltip &&
         <div className={`tooltip fade ${position} in`} 
           role="tooltip" 
-          style={{ position: 'absolute', bottom: '100%', left: '0', width: '100px' }}
+          style={{ position: 'absolute', bottom: '100%', left: '0', width: width + 'px' }}
         >
           <div className="tooltip-arrow" />
           <div className="tooltip-inner">{message}</div>
@@ -51,6 +52,7 @@ class Tooltip extends Component {
 
 Tooltip.propTypes = {
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+  width: PropTypes.string,
   message: PropTypes.string,
   children: PropTypes.node,
 };
@@ -58,7 +60,8 @@ Tooltip.propTypes = {
 Tooltip.defaultProps = {
   children: null,
   position: 'top',
-  message: 'Text'
+  message: 'Text',
+  width: '100',
 };
 
 export default Tooltip;
