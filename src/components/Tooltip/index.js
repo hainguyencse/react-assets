@@ -30,7 +30,7 @@ class Tooltip extends Component {
           onMouseLeave={this.hideTooltip}
           style={{ position: 'relative' }}
         >
-        
+        {this.state.displayTooltip &&
         <div className={`tooltip fade ${position} in`} 
           role="tooltip" 
           style={{ position: 'absolute', bottom: '100%', left: '0', width: width + 'px', marginLeft: '-' + width/4 + 'px' }}
@@ -38,7 +38,7 @@ class Tooltip extends Component {
           <div className="tooltip-arrow" />
           <div className="tooltip-inner">{message}</div>
         </div>
-        
+        }
         <span 
           className='tooltip-hover__trigger'
           onMouseOver={this.showTooltip}
