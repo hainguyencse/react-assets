@@ -15,7 +15,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
             arrayData.map((item, index) => (
               <div key={index}>
                 <div style={{ width: 'calc(100% - 100px)', display: 'inline-block', marginRight: '10px' }}>
-                  <Field name={`${name}.${index}`} />
+                  <Field name={`${name}.${index}`} className="form-control" />
                 </div>
                 <Button
                   onClick={() => arrayHelpers.remove(index)}
