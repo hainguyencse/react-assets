@@ -5,18 +5,18 @@ import Tooltip from '.';
 export default [
   {
     title: 'Top',
-    component: <Tooltip visible text="Tooltip Top" position="top"></Tooltip>
+    component: <Tooltip message="Tooltip Top" position="top" children="Hover me!"></Tooltip>
   },
-  {
-    title: 'Bottom',
-    component: <Tooltip visible text="Tooltip Bottom" position="bottom"></Tooltip>
-  },
-  {
-    title: 'Left',
-    component: <Tooltip visible text="Tooltip Left" position="left"></Tooltip>
-  },
-  {
-    title: 'Right',
-    component: <Tooltip visible text="Tooltip Right" position="right"></Tooltip>
-  }
+  // {
+  //   title: 'Bottom',
+  //   component: <Tooltip message="Tooltip Bottom" position="bottom" children="Hover me!"></Tooltip>
+  // },
+  // {
+  //   title: 'Left',
+  //   component: <Tooltip message="Tooltip Left" position="left" children="<strong>Hover me!</strong>"></Tooltip>
+  // },
+  // {
+  //   title: 'Right',
+  //   component: <Tooltip message="Tooltip Right" position="right" children="Hover me!"></Tooltip>
+  // }
 ];
