@@ -10,42 +10,40 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
     render={arrayHelpers => (
       <div className="form-horizontal form-group">
         <label>{label}</label>
-        <div style={{ marginBottom: '10px' }}>
-          {arrayData && arrayData.length > 0 ? (
-            arrayData.map((item, index) => (
-              <div key={index}>
-                <div style={{ width: 'calc(100% - 100px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
-                  <Field name={`${name}.${index}`} className="form-control" />
-                </div>
-                <Button
-                  onClick={() => arrayHelpers.remove(index)}
-                  displayType={'danger'}
-                  data-toogle="tooltip"
-                  title={'Remove'}
-                >
-                  <i className="fa fa-trash-o" />
-                </Button> &nbsp;
-                <Button
-                  onClick={() => arrayHelpers.insert(index)}
-                  displayType={'primary'}
-                  data-toogle="tooltip"
-                  title={'Add'}
-                >
-                  <i className="fa fa-plus" />
-                </Button>
+        {arrayData && arrayData.length > 0 ? (
+          arrayData.map((item, index) => (
+            <div key={index} style={{ marginBottom: '10px' }}>
+              <div style={{ width: 'calc(100% - 100px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
+                <Field name={`${name}.${index}`} className="form-control" />
               </div>
-            ))
-          ) : (
-            <Button
-              onClick={() => arrayHelpers.push('')}
-              displayType={'primary'}
-              data-toogle="tooltip"
-              title={'Add Item'}
-            >
-              Add Item
-            </Button>
-          )}
-        </div>
+              <Button
+                onClick={() => arrayHelpers.remove(index)}
+                displayType={'danger'}
+                data-toogle="tooltip"
+                title={'Remove'}
+              >
+                <i className="fa fa-trash-o" />
+              </Button> &nbsp;
+              <Button
+                onClick={() => arrayHelpers.insert(index)}
+                displayType={'primary'}
+                data-toogle="tooltip"
+                title={'Add'}
+              >
+                <i className="fa fa-plus" />
+              </Button>
+            </div>
+          ))
+        ) : (
+          <Button
+            onClick={() => arrayHelpers.push('')}
+            displayType={'primary'}
+            data-toogle="tooltip"
+            title={'Add Item'}
+          >
+            Add Item
+          </Button>
+        )}
       </div>
     )}
   />
