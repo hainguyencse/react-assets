@@ -10,7 +10,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
     render={arrayHelpers => (
       <div className="form-horizontal form-group">
         <label>{label}</label>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           {arrayData && arrayData.length > 0 ? (
             arrayData.map((item, index) => (
               <div key={index}>
