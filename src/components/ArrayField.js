@@ -35,14 +35,16 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
             </div>
           ))
         ) : (
-          <Button
-            onClick={() => arrayHelpers.push('')}
-            displayType={'primary'}
-            data-toogle="tooltip"
-            title={'Add Item'}
-          >
-            Add Item
-          </Button>
+          <div>
+            <Button
+              onClick={() => arrayHelpers.push('')}
+              displayType={'primary'}
+              data-toogle="tooltip"
+              title={'Add Item'}
+            >
+              Add Item
+            </Button>
+          </div>
         )}
       </div>
     )}
