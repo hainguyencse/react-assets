@@ -13,7 +13,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
         {arrayData && arrayData.length > 0 ? (
           arrayData.map((item, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
-              <div style={{ width: 'calc(100% - 100px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
+              <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
                 <Field name={`${name}.${index}`} className="form-control" />
               </div>
               <Button
