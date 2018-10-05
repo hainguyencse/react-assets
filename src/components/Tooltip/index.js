@@ -32,7 +32,7 @@ class Tooltip extends Component {
         {this.state.displayTooltip &&
         <div className={`tooltip fade ${position} in`} 
           role="tooltip" 
-          style={{ position: 'absolute', top: 'calc(-100% - 8px)', left: '0' }}
+          style={{ position: 'absolute', bottom: '100%', left: '0', width: '100px' }}
         >
           <div className="tooltip-arrow" />
           <div className="tooltip-inner">{message}</div>
