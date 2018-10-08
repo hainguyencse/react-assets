@@ -163,6 +163,7 @@ Listings.defaultProps = {
   onItemSelect: () => {},
   onSortHeader: () => {},
   actions: [],
+  bulkActions: [],
 };
 
 export default Listings;
