@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
 import Table from '../Table';
@@ -12,7 +12,6 @@ const Listings = ({
   selectable,
   onItemSelect,
   actions,
-  onTagOpen,
   noHeader,
   page,
   dataCount,
@@ -22,6 +21,7 @@ const Listings = ({
   isFetching,
   onSortHeader,
   sortParams,
+  bulkActions,
 }) => (
   <Box
     title={listingsTitle}
@@ -41,17 +41,21 @@ const Listings = ({
         {selectable
           ? (
             <div className="pull-left">
-              <Button displayType="danger" disabled>
-                <i className="fa fa-trash-o" />
-                {' '}
-Delete Selected
-              </Button>
-&nbsp;&nbsp;
-              <Button displayType="primary" onClick={onTagOpen} disabled>
-                <i className="fa fa-tag" />
-                {' '}
-Tag
-              </Button>
+              {
+                bulkActions.map(action => (
+                  <Fragment key={action.title}>
+                    <Button
+                      onClick={() => {}}
+                      displayType={action.type}
+                      data-toogle="tooltip"
+                      title={action.title}
+                    >
+                      {action.render()}
+                    </Button>
+                    <span />
+                  </Fragment>
+                ))
+              }
             </div>
           ) : null}
         <div className="pull-right">
@@ -93,24 +97,53 @@ found
 
 Listings.propTypes = {
   /**
-   * ListingsProps
+   * The title appearing on top the the listing
    */
   listingsTitle: PropTypes.string,
+  /**
+   * Whether to show the listing title
+   */
   noHeader: PropTypes.bool,
+  /**
+   * The current page of the data
+   */
   page: PropTypes.number,
+  /**
+   * Total number of data retreived
+   */
   dataCount: PropTypes.number,
+  /**
+   * Number of items displayed in one page
+   */
   itemsPerPage: PropTypes.number,
+  /**
+   * Callback for page change event
+   */
   onPageChange: PropTypes.func,
+  /**
+   * Number of page link to display
+   */
   pageRange: PropTypes.number,
+  /**
+   * Whether the listing is loading
+   */
   isFetching: PropTypes.bool,
   /**
-   * TableProps
+   * Actions to be displayed in the bottom of the listing
+   */
+  bulkActions: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    render: PropTypes.func.isRequired,
+    callback: PropTypes.func.isRequired,
+    type: PropTypes.oneOf(['default', 'primary', 'danger']),
+  })),
+  /**
+   * TableProps. See Table component
    */
   data: PropTypes.array,
   columns: PropTypes.array.isRequired,
   selectable: PropTypes.bool,
   onItemSelect: PropTypes.func,
-  onTagOpen: PropTypes.func,
   onSortHeader: PropTypes.func,
   sortParams: PropTypes.object,
   actions: PropTypes.array,
@@ -128,7 +161,6 @@ Listings.defaultProps = {
   data: [],
   selectable: false,
   onItemSelect: () => {},
-  onTagOpen: () => {},
   onSortHeader: () => {},
   actions: [],
 };

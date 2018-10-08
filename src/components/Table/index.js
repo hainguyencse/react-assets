@@ -152,10 +152,16 @@ class Table extends React.Component {
 
 Table.propTypes = {
   /**
-   * DataProps
+   * The data supplied to the table
    */
   data: PropTypes.array,
+  /**
+   * Whether to show the headers
+   */
   hideHeader: PropTypes.bool,
+  /**
+   * Column configuration array
+   */
   columns: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
@@ -163,12 +169,15 @@ Table.propTypes = {
     notSortable: PropTypes.bool,
   })).isRequired,
   /**
-   * SelectableProps
+   * Whether each item is selectable
    */
   selectable: PropTypes.bool,
+  /**
+   * Callback for the item select event
+   */
   onItemSelect: PropTypes.func,
   /**
-   * ActionsProps
+   * Actions to be displayed on each item row
    */
   actions: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
@@ -177,9 +186,12 @@ Table.propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'danger']),
   })),
   /**
-   * SortingProps
+   * Callback for the sort event
    */
   onSortHeader: PropTypes.func,
+  /**
+   * The params to configure which header to sort
+   */
   sortParams: PropTypes.shape({
     sortBy: PropTypes.string,
     sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
