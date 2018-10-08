@@ -52,7 +52,7 @@ const Listings = ({
                     >
                       {action.render()}
                     </Button>
-                    <span />
+                    &nbsp;&nbsp;
                   </Fragment>
                 ))
               }
