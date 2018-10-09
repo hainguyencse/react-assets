@@ -17,10 +17,8 @@ const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, 
           {children}
         </div>
         <div className="modal-footer">
-          <div className="pull-left">
-            <Button onClick={onDismiss}>{dismissText}</Button>
-          </div>
-          <Button onClick={onConfirm} type="primary">{confirmText}</Button>
+          <Button onClick={onDismiss}>{dismissText}</Button>
+          <Button onClick={onConfirm} displayType="primary">{confirmText}</Button>
         </div>
       </div>
     </div>
