@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 /**
  * An ordinary button
  */
-const Button = ({ children, block, displayType, size, ...buttonProps }) => (
+const Button = ({ children, block, displayType, size, type, ...buttonProps }) => (
   <button
     className={`btn ${block ? 'btn-block' : ''} btn-${displayType} ${buttonProps.disabled ? 'disabled' : ''} btn-${size}`}
+    type={type}
     {...buttonProps}
   >
     {children}
@@ -23,9 +24,13 @@ Button.propTypes = {
    */
   block: PropTypes.bool,
   /**
-   * Type of button
+   * Display type of the button
    */
   displayType: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger']),
+  /**
+   * Type of the underlying button
+   */
+  type: PropTypes.string,
   /**
    * Size of the button
    */
@@ -36,6 +41,7 @@ Button.defaultProps = {
   children: null,
   block: false,
   displayType: 'default',
+  type: 'button',
   size: 'nor',
 };
 
