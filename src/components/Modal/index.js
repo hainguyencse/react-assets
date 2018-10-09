@@ -5,7 +5,7 @@ import Button from "../Button";
 const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, onDismiss }) => (
   <div
     className={`modal fade ${visible ? 'in' : ''}`}
-    style={visible ? { 'display': 'block', 'paddingRight': '12px' } : { 'display': 'none' } }>
+    style={visible ? { display: 'block', paddingRight: '12px', overflow: 'auto' } : { 'display': 'none' } }>
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
