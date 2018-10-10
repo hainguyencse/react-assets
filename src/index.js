@@ -24,6 +24,7 @@ import InputField from './components/InputField';
 import ArrayField from './components/ArrayField';
 import SelectField from './components/SelectField';
 import TextAreaField from './components/TextAreaField';
+import Timeline from './components/Timeline';
 import WYSIWYGField from './components/WYSIWYGField';
 
 export {
@@ -53,5 +54,6 @@ export {
   SelectField,
   TextAreaField,
   ArrayField,
+  Timeline,
   WYSIWYGField
 };
