@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from "../Button";
 
-const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, onDismiss }) => (
+const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, onDismiss, hideFooter }) => (
   <div
     className={`modal fade ${visible ? 'in' : ''}`}
     style={visible ? { display: 'block', paddingRight: '12px', overflow: 'auto' } : { 'display': 'none' } }>
@@ -16,10 +16,13 @@ const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, 
         <div className="modal-body">
           {children}
         </div>
-        <div className="modal-footer">
-          <Button onClick={onDismiss}>{dismissText}</Button>
-          <Button onClick={onConfirm} displayType="primary">{confirmText}</Button>
-        </div>
+        {hideFooter ? 
+          null : (
+          <div className="modal-footer">
+            <Button onClick={onDismiss}>{dismissText}</Button>
+            <Button onClick={onConfirm} displayType="primary">{confirmText}</Button>
+          </div>
+        )}
       </div>
     </div>
   </div>
@@ -27,6 +30,7 @@ const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, 
 
 Modal.propTypes = {
   visible: PropTypes.bool,
+  hideFooter: PropTypes.bool,
   title: PropTypes.string,
   children: PropTypes.node,
   dismissText: PropTypes.string,
@@ -37,6 +41,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   visible: false,
+  hideFooter: false,
   title: 'Modal',
   children: <p>Body</p>,
   dismissText: 'Cancel',
