@@ -8,12 +8,11 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
   return (
     <li>
       <i className={`fa ${icon} ${iconColor}`}/>
-
       <div className="timeline-item">
-      <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
-
-        <h3 className="timeline-header"><a href="#">{action.user}</a> {action.actionName} {action.target}</h3>
-
+        <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
+        <h3 className="timeline-header" style={{ fontSize: '14px' }}>
+          <a href="#">{action.user}</a> {action.actionName} {action.target}
+        </h3>
         {body ? <div className="timeline-body">
           {body}
         </div> : null}
