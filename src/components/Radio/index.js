@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Radio = ({ label, checked, onChange, disabled }) => (
+const Radio = ({ label, checked, onChange, disabled, ...radioProps }) => (
   <div className="radio">
     <label>
-      <input type="radio" checked={checked} onChange={onChange} disabled={disabled}/>
-        {label}
+      <input 
+        type="radio" 
+        checked={checked} 
+        onChange={onChange} 
+        disabled={disabled} 
+        {...radioProps}
+      />
+      {label}
     </label>
   </div>
 );
