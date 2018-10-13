@@ -25,7 +25,9 @@ import ArrayField from './components/ArrayField';
 import SelectField from './components/SelectField';
 import TextAreaField from './components/TextAreaField';
 import Timeline from './components/Timeline';
+import Rating from './components/Rating';
 import WYSIWYGField from './components/WYSIWYGField';
+import MarkdownField from './components/MarkdownField';
 
 export {
   Avatar,
@@ -55,5 +57,7 @@ export {
   TextAreaField,
   ArrayField,
   Timeline,
-  WYSIWYGField
+  Rating,
+  WYSIWYGField,
+  MarkdownField,
 };
