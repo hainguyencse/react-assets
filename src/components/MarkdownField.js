@@ -8,14 +8,18 @@ const MarkdownField = ({ name, validate, ...editorProps }) => (
   <Field
     name={name}
     validate={validate}
-    render={({ field, form: { errors, touched } }) => (
-      <MarkdownEditor
-        error={errors[name]}
-        touched={touched}
-        {...editorProps}
-        {...field}
-      />
-    )}
+    render={({ field, form: { errors, touched, setFieldValue } }) => {
+      const { onBlur, onChange, ...restField } = field;
+      return (
+        <MarkdownEditor
+          error={errors[name]}
+          touched={touched[name]}
+          {...editorProps}
+          {...restField}
+          onChange={value => setFieldValue(name, value)}
+        />
+      );
+    }}
   />
 );
 

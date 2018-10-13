@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SimpleMDE from 'simplemde';
+
+let SimpleMDE;
+// mitigate SSR error with navigator
+if (global.navigator) {
+  // eslint-disable-next-line
+  SimpleMDE = require('simplemde');
+}
 
 class MarkdownEditor extends React.Component {
   componentDidMount() {
     const {
-      autoFocus, placeholder, onChange, onBlur, value
+      autoFocus, placeholder, value
     } = this.props;
 
-    let simplemde;
-    if (SimpleMDE && !simplemde) {
-      simplemde = new SimpleMDE({
+    if (SimpleMDE && !this.simplemde) {
+      this.simplemde = new SimpleMDE({
         element: this.textArea,
         toolbar: [
           'bold', 'italic', '|',
@@ -26,28 +31,47 @@ class MarkdownEditor extends React.Component {
         initialValue: value,
       });
 
-      if (simplemde.codemirror) {
-        simplemde.codemirror.on('change', () => {
-          onChange(simplemde.value());
-        });
-
-        simplemde.codemirror.on('blur', (e) => {
-          onBlur();
-        });
+      if (this.simplemde.codemirror) {
+        this.simplemde.codemirror.on('change', this.handleOnChange);
+        this.simplemde.codemirror.on('blur', this.handleOnBlur);
       }
     }
   }
 
+  componentDidUpdate() {
+    const { value } = this.props;
+    if (this.simplemde.codemirror) {
+      this.simplemde.codemirror.getDoc().setValue(value);
+      this.simplemde.codemirror.setCursor(this.simplemde.codemirror.lineCount(), 0);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.simplemde.codemirror) {
+      this.simplemde.codemirror.off('change', this.handleOnChange);
+      this.simplemde.codemirror.off('blur', this.handleOnBlur);
+    }
+  }
+
+  handleOnChange = (e, meta) => {
+    if (meta.origin !== 'setValue') {
+      this.props.onChange(this.simplemde.value());
+    }
+  };
+
+  handleOnBlur = () => {
+    this.props.onBlur();
+  };
+
   render() {
     const {
-      label, rows, required, disabled, touched, error
+      label, required, disabled, touched, error
     } = this.props;
 
     return (
       <div>
         {label && <label>{label}</label>}
         <textarea
-          rows={rows}
           required={required}
           ref={(ref) => { this.textArea = ref; }}
           disabled={disabled}
@@ -59,10 +83,6 @@ class MarkdownEditor extends React.Component {
 }
 
 MarkdownEditor.propTypes = {
-  /**
-   * Maximum rows displayed by the editor
-   */
-  rows: PropTypes.number,
   /**
    * Label of the editor
    */
