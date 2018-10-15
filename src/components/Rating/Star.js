@@ -7,7 +7,7 @@ export const EMPTY_STAR = 'fa fa-star-o';
 
 const Star = ({ type }) => (
 	<span>
-  	<i className={type} style={{ color: '#FFC43D'}} />&nbsp;
+  	<i className={type} style={{ color: '#FFC43D', fontSize: '16px' }} />&nbsp;
   </span>
 );
 
