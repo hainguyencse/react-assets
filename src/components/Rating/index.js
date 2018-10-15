@@ -6,7 +6,7 @@ import Star, { EMPTY_STAR, FULL_STAR, HALF_STAR } from './Star';
  * Rating displays stars based on the rating number provided
  * @param rating - The rating number
  */
-const Rating = ({ rating }) => {
+const Rating = ({ rating, size }) => {
   const stars = [];
 
   const fulls = Math.floor(rating);
@@ -30,7 +30,7 @@ const Rating = ({ rating }) => {
   }
 
   return stars.map(star => (
-    <Star type={star} />
+    <Star type={star} size={size} />
   ));
 };
 
@@ -39,6 +39,7 @@ Rating.propTypes = {
    * The rating number of the component
    */
   rating: PropTypes.number.isRequired,
+  size: PropTypes.string,
 };
 
 export default Rating;
