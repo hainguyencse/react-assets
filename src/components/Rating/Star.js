@@ -5,7 +5,7 @@ export const HALF_STAR = 'fa fa-star-half-o';
 export const FULL_STAR = 'fa fa-star';
 export const EMPTY_STAR = 'fa fa-star-o';
 
-const Star = ({ type, size }) => (
+const Star = ({ type, size }) => {
 	const renderStars = () => {
     switch (size) {
       case 'lg': {
@@ -13,14 +13,14 @@ const Star = ({ type, size }) => (
         	<span>
 				  	<i className={type} style={lgCss} />&nbsp;
 				  </span>
-	  		)
+	  		);
       }
       default:
         return (
         	<span>
 				  	<i className={type} style={mdCss} />&nbsp;
 				  </span>
-	  		)
+	  		);
     }   
   };
 
@@ -28,13 +28,14 @@ const Star = ({ type, size }) => (
   	<span>
 	  	{renderStars()}
 	  </span>
-  )
-);
+  );
+};
 
 Star.propTypes = {
   /**
    * The type of the stars
    */
+  size: PropTypes.string,
   type: PropTypes.oneOf([HALF_STAR, FULL_STAR, EMPTY_STAR]).isRequired,
 };
 
