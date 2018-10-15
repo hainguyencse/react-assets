@@ -36,7 +36,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   large: false,
-  title: 'Avatar',
+  title: '',
   src: '',
   size: 'medium',
 };
