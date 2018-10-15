@@ -6,7 +6,9 @@ export const FULL_STAR = 'fa fa-star';
 export const EMPTY_STAR = 'fa fa-star-o';
 
 const Star = ({ type }) => (
-  <i className={type} style={{ color: '#FFC43D'}} />
+	<span>
+  	<i className={type} style={{ color: '#FFC43D'}} />&nbsp;
+  </span>
 );
 
 Star.propTypes = {
