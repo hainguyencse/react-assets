@@ -39,7 +39,7 @@ Rating.propTypes = {
    * The rating number of the component
    */
   rating: PropTypes.number.isRequired,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['md', 'lg']),
 };
 
 export default Rating;

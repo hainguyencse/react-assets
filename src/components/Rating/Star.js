@@ -15,12 +15,15 @@ const Star = ({ type, size }) => {
 				  </span>
 	  		);
       }
-      default:
+      case 'md': {
         return (
         	<span>
 				  	<i className={type} style={mdCss} />&nbsp;
 				  </span>
 	  		);
+      }
+      default:
+        return null;
     }   
   };
 
@@ -35,8 +38,12 @@ Star.propTypes = {
   /**
    * The type of the stars
    */
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['md', 'lg']),
   type: PropTypes.oneOf([HALF_STAR, FULL_STAR, EMPTY_STAR]).isRequired,
+};
+
+Star.defaultProps = {
+  size: 'md',
 };
 
 const lgCss = {
