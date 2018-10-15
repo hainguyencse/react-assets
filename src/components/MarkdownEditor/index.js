@@ -40,9 +40,9 @@ class MarkdownEditor extends React.Component {
 
   componentDidUpdate() {
     const { value } = this.props;
-    if (this.simplemde.codemirror) {
+    // only update the value of the input according to the external value if it is not typed
+    if (this.simplemde.codemirror && !this._typed) {
       this.simplemde.codemirror.getDoc().setValue(value);
-      this.simplemde.codemirror.setCursor(this.simplemde.codemirror.lineCount(), 0);
     }
   }
 
@@ -55,6 +55,8 @@ class MarkdownEditor extends React.Component {
 
   handleOnChange = (e, meta) => {
     if (meta.origin !== 'setValue') {
+      // a flag to indicate whether the input is typed
+      if (!this._typed) this._typed = true;
       this.props.onChange(this.simplemde.value());
     }
   };
