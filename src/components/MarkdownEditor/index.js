@@ -71,7 +71,7 @@ class MarkdownEditor extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="form-group">
         {label && <label>{label}</label>}
         <textarea
           required={required}
