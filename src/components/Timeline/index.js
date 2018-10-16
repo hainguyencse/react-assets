@@ -39,6 +39,7 @@ Timeline.propTypes = {
     user: PropTypes.string,
     actionName: PropTypes.string,
     target: PropTypes.string,
+    body: PropTypes.node,
     /**
      * RFC 2822 time format
      */
