@@ -6,7 +6,7 @@ import Button from '../Button';
 export const ASCENDING = 'asc';
 export const DESCENDING = 'desc';
 
-const verticalStyle = { verticalAlign: 'middle', whiteSpace: 'nowrap' };
+const verticalStyle = { whiteSpace: 'nowrap' };
 
 const flipDirection = (direction) => {
   if (direction === ASCENDING) {
