@@ -6,7 +6,7 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
   const momentTime = moment(action.time);
 
   return (
-    <li style={{ `background: ${action.bgColor}` }}>
+    <li style={{ background: action.bgColor }}>
       {/* <i className={`fa ${icon} ${iconColor}`}/> */}
       <div className="timeline-item">
         <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
