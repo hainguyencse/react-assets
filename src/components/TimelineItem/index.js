@@ -7,12 +7,12 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
 
   return (
     <li>
-      {/* <i className={`fa ${icon} ${iconColor}`}/> */}
+      <i className={`fa ${icon} ${iconColor}`}/>
       <div className="timeline-item" style={{ background: action.bgColor }}>
         <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
-        <h3 className="timeline-header" style={{ fontSize: '14px', border: 'none' }}>
+        <div className="timeline-header" style={{ fontSize: '14px', border: 'none' }}>
           <strong>{action.user}</strong> {action.actionName} {action.target}
-        </h3>
+        </div>
         {action.body ? <div className="timeline-body">
           {action.body}
         </div> : null}
@@ -45,7 +45,7 @@ TimelineItem.propTypes = {
 
 TimelineItem.defaultProps = {
   footer: null,
-  icon: 'fa-cogs',
+  icon: null,
   iconColor: 'bg-blue',
 };
 
