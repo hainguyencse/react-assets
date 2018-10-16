@@ -13,8 +13,8 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
         <h3 className="timeline-header" style={{ fontSize: '14px' }}>
           <a href="#">{action.user}</a> {action.actionName} {action.target}
         </h3>
-        {body ? <div className="timeline-body">
-          {body}
+        {action.body ? <div className="timeline-body">
+          {action.body}
         </div> : null}
 
         {footer ? <div className="timeline-footer">
@@ -31,19 +31,18 @@ TimelineItem.propTypes = {
     user: PropTypes.string,
     actionName: PropTypes.string,
     target: PropTypes.string,
+    body: PropTypes.node,
     /**
      * RFC 2822 time format
      */
     time: PropTypes.string,
   }).isRequired,
-  body: PropTypes.node,
   footer: PropTypes.node,
   icon: PropTypes.string,
   iconColor: PropTypes.string,
 };
 
 TimelineItem.defaultProps = {
-  body: null,
   footer: null,
   icon: 'fa-cogs',
   iconColor: 'bg-blue',
