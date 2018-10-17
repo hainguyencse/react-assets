@@ -8,7 +8,7 @@ const Timeline = ({ actionHistory }) => {
   let previousDate;
 
   const parseTimeToDate = (time) => {
-    return moment(time).format('DD MMM YYYY');
+    return moment(time).format('MMM DD, YYYY');
   };
 
   return (
