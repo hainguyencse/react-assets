@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Avatar from '../Avatar';
 
 const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
   const momentTime = moment(action.time);
 
   return (
     <li>
-      <i className={`fa ${icon} ${iconColor}`}/>
+      {action.photoSrc ?
+        <Avatar size="small" src={action.photoSrc} />
+        :
+        <i className="fa" />
+      }
       <div className="timeline-item" style={{ background: action.bgColor }}>
         <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
         <div className="timeline-header" style={{ fontSize: '14px', border: 'none' }}>
@@ -37,6 +42,7 @@ TimelineItem.propTypes = {
      */
     time: PropTypes.string,
     bgColor: PropTypes.string,
+    photoSrc: PropTypes.string,
   }).isRequired,
   footer: PropTypes.node,
   icon: PropTypes.string,

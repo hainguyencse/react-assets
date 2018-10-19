@@ -4,6 +4,7 @@ import moment from 'moment';
 import TimelineLabel from '../TimelineLabel';
 import TimelineItem from '../TimelineItem';
 
+
 const Timeline = ({ actionHistory }) => {
   let previousDate;
 
@@ -26,9 +27,6 @@ const Timeline = ({ actionHistory }) => {
         }
         return <TimelineItem key={action.id} action={action}/>;
       })}
-      <li>
-        <i className="fa fa-clock-o bg-gray" />
-      </li>
     </ul>
   );
 };
