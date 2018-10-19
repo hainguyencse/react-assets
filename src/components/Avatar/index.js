@@ -21,7 +21,7 @@ const Avatar = ({
   };
 
   return (
-    <div style={wrapCss}>
+    <div style={wrapCss} className="avatar">
       {renderAvatarImg()}
     </div>
   );
