@@ -10,7 +10,7 @@ export const colors = {
   GREY: 'bg-gray',
 };
 
-const Label = ({ text, color }) => <small className={`label ${color}`}>{text}</small>;
+const Label = ({ text, color }) => <small style={{ fontSize: '11px', verticalAlign: 'middle' }} className={`label ${color}`}>{text}</small>;
 
 Label.propTypes = {
   text: PropTypes.string,
