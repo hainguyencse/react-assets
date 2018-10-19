@@ -1,3 +1,4 @@
+import Alert from './components/Alert';
 import Avatar from './components/Avatar';
 import Box from './components/Box';
 import BoxInfo from './components/BoxInfo';
