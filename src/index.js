@@ -30,6 +30,7 @@ import WYSIWYGField from './components/WYSIWYGField';
 import MarkdownField from './components/MarkdownField';
 
 export {
+  Alert,
   Avatar,
   Box,
   BoxInfo,
