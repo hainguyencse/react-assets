@@ -23,6 +23,8 @@ const Status = ({ state, statuses }) => {
   return <Label text={statuses[state].title} color={statuses[state].color} />;
 };
 
+Status.colors = colors;
+
 Status.propTypes = {
   /**
    * The current state
@@ -40,5 +42,4 @@ Status.propTypes = {
   })),
 };
 
-export { colors };
 export default Status;
