@@ -52,9 +52,7 @@ const Input = ({
         className="form-control"
         {...inputProps}
       />
-
       <div className="row">
-        {label ? <span className="col-sm-2" /> : null}
         {renderHelpBlock()}
       </div>
     </div>
