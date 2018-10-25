@@ -137,7 +137,7 @@ class Table extends React.Component {
   render() {
     return (
       <div className="box-body table-responsive no-padding">
-        <table className="table table-hover table-striped dataTable">
+        <table className="table dataTable">
           <thead>
             {this.renderHeader()}
           </thead>
