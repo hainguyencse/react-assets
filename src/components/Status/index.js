@@ -34,12 +34,7 @@ Status.propTypes = {
    * Statuses contains config of each status
    * Only show tooltip if status has tooltipMessage
    */
-  statuses: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    color: PropTypes.string,
-    isTooltipVisible: PropTypes.bool,
-    tooltipMessage: PropTypes.string,
-  })),
+  statuses: PropTypes.object,
 };
 
 export default Status;
