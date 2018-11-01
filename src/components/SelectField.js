@@ -46,6 +46,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
             isDisabled={isDisabled}
             isLoading={isLoading}
             options={options}
+            isMulti={isMulti}
             onChange={(valueObj, actionObj) => {
               if (actionObj.action === 'select-option') {
                 setFieldValue(name, valueObj.value);
@@ -63,6 +64,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
 SelectField.propTypes = {
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
+  isMulti: PropTypes.bool,
   onInputChange: PropTypes.func,
   label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
@@ -74,6 +76,7 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
+  isMulti: false,
   label: '',
   options: [],
   onInputChange: () => {},
