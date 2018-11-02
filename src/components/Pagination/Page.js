@@ -41,6 +41,8 @@ export default class Page extends Component {
       return;
     }
     this.props.onClick(pageNumber);
+
+    window.scrollTo(0, 50);
   }
 
   render() {
