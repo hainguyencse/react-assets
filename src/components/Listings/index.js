@@ -73,18 +73,19 @@ const Listings = ({
           </div>
           <div style={{ clear: 'both', color: '#b5bbc8' }}>
             <small>
-Showing
+              Showing
               {(itemsPerPage * (page - 1)) + 1}
               {' '}
--
+              -
               {
                 itemsPerPage * page > dataCount ? dataCount : itemsPerPage * page
               }
               {' '}
-of total
+              of total
+              {' '}
               {dataCount}
               {' '}
-found
+              found
             </small>
           </div>
         </div>
