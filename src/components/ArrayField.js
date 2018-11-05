@@ -38,11 +38,10 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
           <div>
             <Button
               onClick={() => arrayHelpers.push('')}
-              displayType={'primary'}
               data-toogle="tooltip"
               title={'Add Item'}
             >
-              Add Item
+              <i className="fa fa-plus"></i>&nbsp;Add Item
             </Button>
           </div>
         )}
