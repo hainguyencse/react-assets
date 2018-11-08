@@ -37,7 +37,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
           ))
         ) : null }
 
-        {arrayData && arrayData.length == 0 ? (
+        {arrayData ? (
           arrayData.map((item, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
