@@ -26,8 +26,9 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
             onClick={() => arrayHelpers.push('')}
             data-toogle="tooltip"
             title={'Add Item'}
+            displayType={'primary'}
           >
-            <i className="fa fa-plus"></i>&nbsp;Add Item
+            <i className="fa fa-plus"></i>
           </Button>
         </div>
 
@@ -57,7 +58,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
           ))
         ) : null }
 
-        {arrayData && arrayData.length > 0 ? (
+        {arrayData && arrayData.length == 0 ? (
           <div>
             <Button
               onClick={() => arrayHelpers.push('')}
