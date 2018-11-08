@@ -35,7 +35,9 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
               </Button>
             </div>
           ))
-        ) :
+        ) : null }
+
+        {arrayData && arrayData.length == 0 ? (
           arrayData.map((item, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
@@ -59,7 +61,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
               </Button>
             </div>
           ))
-        }
+        ) : null }
       </div>
     )}
   />
