@@ -10,27 +10,6 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
     render={arrayHelpers => (
       <div className="form-horizontal form-group">
         <label>{label}</label>
-        <div key={0} style={{ marginBottom: '10px' }}>
-          <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
-            <Field name={`${name}.0`} className="form-control" />
-          </div>
-          <Button
-            onClick={() => arrayHelpers.remove(0)}
-            displayType={'danger'}
-            data-toogle="tooltip"
-            title={'Remove'}
-          >
-            <i className="fa fa-trash-o" />
-          </Button> &nbsp;
-          <Button
-            onClick={() => arrayHelpers.push('')}
-            data-toogle="tooltip"
-            title={'Add Item'}
-            displayType={'primary'}
-          >
-            <i className="fa fa-plus"></i>
-          </Button>
-        </div>
 
         {arrayData && arrayData.length > 0 ? (
           arrayData.map((item, index) => (
@@ -59,16 +38,41 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
         ) : null }
 
         {arrayData && arrayData.length == 0 ? (
-          <div>
+          <div key={0} style={{ marginBottom: '10px' }}>
+            <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
+              <Field name={`${name}.0`} className="form-control" />
+            </div>
+            <Button
+              onClick={() => arrayHelpers.remove(0)}
+              displayType={'danger'}
+              data-toogle="tooltip"
+              title={'Remove'}
+            >
+              <i className="fa fa-trash-o" />
+            </Button> &nbsp;
             <Button
               onClick={() => arrayHelpers.push('')}
               data-toogle="tooltip"
               title={'Add Item'}
+              displayType={'primary'}
             >
-              <i className="fa fa-plus"></i>&nbsp;Add Item
+              <i className="fa fa-plus"></i>
             </Button>
           </div>
-        ) : null }
+          ) : null 
+        }
+
+        {!arrayData ? (
+          <Button
+              onClick={() => arrayHelpers.push('')}
+              data-toogle="tooltip"
+              title={'Add Item'}
+              displayType={'primary'}
+            >
+            <i className="fa fa-plus"></i> Add Item
+          </Button>
+          ) : null
+        }
       </div>
     )}
   />
