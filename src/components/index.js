@@ -7,6 +7,7 @@ import ButtonGroup from './ButtonGroup';
 import ButtonOutline from './ButtonOutline';
 import CheckBox from './CheckBox';
 import CheckBoxGroup from './CheckBoxGroup';
+import DatePickerField from './DatePickerField';
 import Input from './Input';
 import Modal from './Modal';
 import Pagination from './Pagination';
@@ -29,6 +30,7 @@ export {
   ButtonOutline,
   CheckBox,
   CheckBoxGroup,
+  DatePickerField,
   Input,
   Modal,
   Pagination,
