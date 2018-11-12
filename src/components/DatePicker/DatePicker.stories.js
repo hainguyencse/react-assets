@@ -4,7 +4,7 @@ import DatePickerField from '.';
 
 export default [
   {
-    title: 'Success',
-    component: <DatePickerField/>, 
+    title: 'Date Picker',
+    component: <DatePickerField inline/>, 
   }
 ];

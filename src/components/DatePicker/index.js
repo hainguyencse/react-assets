@@ -23,6 +23,7 @@ export default class DatePickerField extends React.Component {
   render() {
     return (
       <DatePicker
+        {...this.props}
         selected={this.state.startDate}
         onChange={this.handleChange}
       />
