@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DatePicker from "react-datepicker";
 import moment from "moment";
 
-import "react-datepicker/dist/react-datepicker.css";
+import "./react-datepicker.css";
 
 export default class DatePickerField extends React.Component {
   constructor(props) {
