@@ -180,7 +180,7 @@ Table.propTypes = {
    * Actions to be displayed on each item row
    */
   actions: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.oneOf([PropTypes.object, PropTypes.string]),
+    title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     render: PropTypes.func.isRequired,
     callback: PropTypes.func.isRequired,
     type: PropTypes.oneOf(['default', 'primary', 'danger']),
