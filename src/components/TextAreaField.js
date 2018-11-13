@@ -18,7 +18,7 @@ const TextAreaField = ({ name, validate, ...textAreaProps }) => (
 
 TextAreaField.propTypes = {
   name: PropTypes.string.isRequired,
-  validate: PropTypes.func.isRequired,
+  validate: PropTypes.func,
 };
 
 export default TextAreaField;

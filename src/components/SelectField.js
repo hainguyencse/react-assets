@@ -30,11 +30,14 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
     render={({ field, form }) => {
       const { onChange, value, ...restField } = field;
       const { setFieldValue } = form;
-
       let selectedValue = null;
-      const selectedOptions = options.find(option => option.value === value);
-      if (selectedOptions) {
-        selectedValue = { value, label: selectedOptions.label };
+      if (Array.isArray(value)) {
+        selectedValue = value;
+      } else {
+        const selectedOptions = options.find(option => option.value === value);
+        if (selectedOptions) {
+          selectedValue = { value, label: selectedOptions.label };
+        }
       }
 
       return (
@@ -48,8 +51,12 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
             options={options}
             isMulti={isMulti}
             onChange={(valueObj, actionObj) => {
-              if (actionObj.action === 'select-option') {
-                setFieldValue(name, valueObj.value);
+              if (['select-option', 'remove-value'].indexOf(actionObj.action) >= 0) {
+                if (Array.isArray(valueObj)) {
+                  setFieldValue(name, valueObj);
+                } else {
+                  setFieldValue(name, valueObj.value);
+                }
               }
             }}
             onInputChange={onInputChange}
