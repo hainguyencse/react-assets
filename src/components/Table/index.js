@@ -85,7 +85,7 @@ class Table extends React.Component {
     const { columns } = this.props;
 
     return columns.map(col => (
-      <td key={col.id} style={verticalStyle}>
+      <td key={`listing-col-${col.id}`} style={verticalStyle}>
         {col.render(datum)}
       </td>
       )
@@ -121,8 +121,8 @@ class Table extends React.Component {
   renderData() {
     const { selectable, data } = this.props;
 
-    return data.map(datum => (
-      <tr key={datum.id || undefined}>
+    return data.map((datum, index) => (
+      <tr key={datum.id || `listing-tb-${index}`}>
         { selectable ? <td style={{ ...verticalStyle, width: 10 }}>
           <Checkbox onChange={this.handleSelectItem.bind(null, datum)} />
         </td> : null }
