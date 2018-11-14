@@ -66,7 +66,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
           {errors[name] && touched[name]
             ? (
               <div className="form-horizontal form-group has-error">
-                <span className="help-block col-sm-10">{errors[name]}</span>
+                <span className="help-block">{errors[name]}</span>
               </div>
             ) : null}
         </div>

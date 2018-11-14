@@ -78,7 +78,11 @@ class MarkdownEditor extends React.Component {
           ref={(ref) => { this.textArea = ref; }}
           disabled={disabled}
         />
-        {touched && error && <span>{error}</span>}
+        {touched && error && (
+          <div className="form-horizontal form-group has-error">
+            <span className="help-block">{error}</span>
+          </div>
+        ) }
       </div>
     );
   }
