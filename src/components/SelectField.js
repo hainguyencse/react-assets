@@ -30,6 +30,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
     render={({ field, form }) => {
       const { onChange, value, ...restField } = field;
       const { setFieldValue } = form;
+      const { errors, touched } = form;
       let selectedValue = null;
       if (Array.isArray(value)) {
         selectedValue = value;
@@ -62,6 +63,12 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
             onInputChange={onInputChange}
             styles={customSelectStyles}
           />
+          {errors[name] && touched[name]
+            ? (
+              <div className="form-horizontal form-group has-error">
+                <span className="help-block col-sm-10">{errors[name]}</span>
+              </div>
+            ) : null}
         </div>
       );
     }}
