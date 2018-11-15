@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AsyncSelect from 'react-select/lib/Async';
 
 
-const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions }) => (
+const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions, isMulti }) => (
   <Field
     name={name}
     validate={validate}
@@ -19,6 +19,7 @@ const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions })
           <AsyncSelect
             {...restField}
             value={value}
+            isMulti={isMulti}
             loadOptions={loadOptions}
             onChange={(onChangeValue) => {
               setFieldValue(name, onChangeValue);
@@ -39,12 +40,14 @@ const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions })
 AsyncSelectField.propTypes = {
   onInputChange: PropTypes.func,
   label: PropTypes.string,
+  isMulti: PropTypes.bool,
   name: PropTypes.string.isRequired,
   loadOptions: PropTypes.func,
   validate: PropTypes.func,
 };
 
 AsyncSelectField.defaultProps = {
+  isMulti: false,
   label: '',
   onInputChange: () => {},
 };
