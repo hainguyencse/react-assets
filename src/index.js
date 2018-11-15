@@ -25,6 +25,7 @@ import CreateableSelectField from './components/CreatableSelectField';
 import InputField from './components/InputField';
 import ArrayField from './components/ArrayField';
 import SelectField from './components/SelectField';
+import AsyncSelectField from './components/AsyncSelectField';
 import TextAreaField from './components/TextAreaField';
 import Timeline from './components/Timeline';
 import Rating from './components/Rating';
@@ -59,6 +60,7 @@ export {
   CreateableSelectField,
   InputField,
   SelectField,
+  AsyncSelectField,
   TextAreaField,
   ArrayField,
   Timeline,
