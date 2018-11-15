@@ -22,6 +22,7 @@ import Breadcrumb from './components/Breadcrumb';
 import Tooltip from './components/Tooltip';
 import CheckboxField from './components/CheckboxField';
 import CreateableSelectField from './components/CreatableSelectField';
+import CreatableMultiSelectField from './components/CreatableMultiSelectField';
 import InputField from './components/InputField';
 import ArrayField from './components/ArrayField';
 import SelectField from './components/SelectField';
@@ -61,6 +62,7 @@ export {
   InputField,
   SelectField,
   AsyncSelectField,
+  CreatableMultiSelectField,
   TextAreaField,
   ArrayField,
   Timeline,
