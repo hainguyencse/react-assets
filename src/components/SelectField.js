@@ -32,7 +32,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
       const { setFieldValue } = form;
       const { errors, touched } = form;
       let selectedValue = null;
-      if (Array.isArray(value)) {
+      if (isMulti && Array.isArray(value)) {
         selectedValue = value;
       } else {
         const selectedOptions = options.find(option => option.value === value);
