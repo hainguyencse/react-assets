@@ -25,7 +25,7 @@ const ArrayField = ({ name, label, arrayData, ...inputProps }) => (
                 <i className="fa fa-trash-o" />
               </Button> &nbsp;
               <Button
-                onClick={() => arrayHelpers.insert(index)}
+                onClick={() => arrayHelpers.insert(index, '')}
                 displayType={'primary'}
                 data-toogle="tooltip"
                 title={'Add'}
