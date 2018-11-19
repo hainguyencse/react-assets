@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  * @constructor
  */
 const Input = ({
-  label, displayType, message, ...inputProps
+  label, displayType, message, only, ...inputProps
 }) => {
   const renderLabelIcon = () => {
     switch (displayType) {
@@ -45,7 +45,7 @@ const Input = ({
 
   // TODO: unique id for input
   return (
-    <div className={`form-horizontal form-group ${displayType !== 'default' ? `has-${displayType}` : ''}`}>
+    <div className={`form-horizontal form-group ${displayType !== 'default' ? `has-${displayType}` : ''} ${only ? 'noMargin' : ''}`}>
       {renderLabel()}
       <input
         id="input"
