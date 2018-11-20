@@ -19,11 +19,26 @@ export default class DatePickerField extends React.Component {
   }
 
   render() {
+    const { isDefaultHeader } = this.props;
+    let props = {
+      ...this.props,
+      selected: this.state.startDate,
+      onChange: this.handleChange
+    };
+    if (!isDefaultHeader) {
+      props = {...props, renderCustomHeader: ({
+        date,
+        changeYear,
+        changeMonth,
+        decreaseMonth,
+        increaseMonth,
+        prevMonthButtonDisabled,
+        nextMonthButtonDisabled
+      }) => {}};
+    }
     return (
       <DatePicker
-        {...this.props}
-        selected={this.state.startDate}
-        onChange={this.handleChange}
+        {...props}
       />
     );
   }
@@ -34,5 +49,5 @@ DatePickerField.propTypes = {
 };
 
 DatePickerField.defaultProps = {
-  
+  isDefaultHeader: true,
 };

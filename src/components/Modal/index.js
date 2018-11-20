@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from "../Button";
 
-const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, onDismiss, hideFooter }) => (
+const Modal = ({ visible, title, children, dismissText, confirmText, onConfirm, onDismiss, hideFooter, smallWidth }) => (
   <div
     className={`modal fade ${visible ? 'in' : ''}`}
     style={visible ? { display: 'block', paddingRight: '12px', overflow: 'auto' } : { 'display': 'none' } }>
-    <div className="modal-dialog">
+    <div className={`modal-dialog ${smallWidth ? '_small': ''}`}>
       <div className="modal-content">
         <div className="modal-header">
           <button type="button" className="close" onClick={onDismiss}>
