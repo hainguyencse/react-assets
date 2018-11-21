@@ -14,7 +14,7 @@ export default [
       <CheckBox label="Checkbox 2"></CheckBox>
       <CheckBox label="Checkbox 3"></CheckBox>
       <Formik
-        onSubmit={() => {}}
+        onSubmit={(values) => { console.log('values', values); }}
       >
         {
           ({ isSubmitting, isValid, values }) => (

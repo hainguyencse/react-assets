@@ -4,22 +4,22 @@ import { Field } from 'formik';
 
 import Checkbox from './CheckBox';
 
-const CheckboxField = ({ name, validate, ...checkboxProps }) => (
+const CheckboxField = ({ name, validate, value, ...checkboxProps }) => (
   <Field
     name={name}
     validate={validate}
-    render={({ field }) => {
-      const { value, onChange, ...restField } = field;
+    render={({ field, form }) => {
+      const { onChange, ...restField } = field;
 
       return (
         <Checkbox
           {...checkboxProps}
           {...restField}
-          onChange={e => {
-            const event = { ...e };
-            onChange(event);
+          onChange={() => {
+            const nextValue = !field.value ? value : undefined;
+            form.setFieldValue(name, nextValue);
           }}
-          checked={value}
+          checked={field.value}
         />
       );
     }}
