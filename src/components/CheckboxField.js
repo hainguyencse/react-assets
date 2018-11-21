@@ -17,7 +17,6 @@ const CheckboxField = ({ name, validate, ...checkboxProps }) => (
           {...restField}
           onChange={e => {
             const event = { ...e };
-            event.target.value = event.target.checked;
             onChange(event);
           }}
           checked={value}
