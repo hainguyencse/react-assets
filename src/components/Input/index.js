@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
  * @constructor
  */
 const Input = ({
-  label, displayType, message, only, ...inputProps
+  label, displayType, message, only, sub, ...inputProps
 }) => {
   const renderLabelIcon = () => {
     switch (displayType) {
@@ -35,6 +35,7 @@ const Input = ({
         <label htmlFor="input">
           {renderLabelIcon()}
           {label}
+          <span className="text-muted" style={{ fontWeight: normal }}>{sub}</span>
         </label>
       ) : null
   );

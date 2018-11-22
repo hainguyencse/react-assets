@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = ({ label, notes, ...textAreaProps }) => (
+const TextArea = ({ label, notes, sub, ...textAreaProps }) => (
   <div className="form-group">
-    {label ? <label>{label}</label> : null}
+    {label ? <label>{label} <span className="text-muted" style={{ fontWeight: normal }}>{sub}</span></label> : null}
     <textarea
       className="form-control"
       {...textAreaProps}
@@ -19,10 +19,12 @@ TextArea.propTypes = {
    */
   label: PropTypes.string,
   notes: PropTypes.node,
+  sub: PropTypes.string,
 };
 
 TextArea.defaultProps = {
   label: '',
+  sub: '',
 };
 
 export default TextArea;
