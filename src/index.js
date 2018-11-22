@@ -25,6 +25,7 @@ import CreateableSelectField from './components/CreatableSelectField';
 import CreatableMultiSelectField from './components/CreatableMultiSelectField';
 import InputField from './components/InputField';
 import ArrayField from './components/ArrayField';
+import ArrayFilterField from './components/ArrayFilterField';
 import SelectField from './components/SelectField';
 import AsyncSelectField from './components/AsyncSelectField';
 import TextAreaField from './components/TextAreaField';
@@ -65,6 +66,7 @@ export {
   CreatableMultiSelectField,
   TextAreaField,
   ArrayField,
+  ArrayFilterField,
   Timeline,
   Rating,
   WYSIWYGField,
