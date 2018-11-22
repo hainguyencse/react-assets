@@ -11,7 +11,7 @@ const ArrayFilterField = ({ name, label, keyOptions, typeOptions, arrayData, ...
     render={arrayHelpers => (
       <div className="form-horizontal form-group">
         <label>{label}</label>
-        {arrayData && arrayData.length > 0 ? (
+        {arrayData && arrayData.length > 0 &&
           arrayData.map((item, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
@@ -29,7 +29,7 @@ const ArrayFilterField = ({ name, label, keyOptions, typeOptions, arrayData, ...
               </Button>
             </div>
           ))
-        )}
+        }
         <div>
           <Button
             onClick={() => arrayHelpers.push('')}
