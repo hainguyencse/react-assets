@@ -35,7 +35,7 @@ const Input = ({
         <label htmlFor="input">
           {renderLabelIcon()}
           {label}
-          <span className="text-muted" style={{ fontWeight: normal }}>{sub}</span>
+          <span className="text-muted" style={{ fontWeight: 'normal' }}>{sub}</span>
         </label>
       ) : null
   );
