@@ -23,7 +23,6 @@ const CheckboxField = ({ name, validate, value, ...checkboxProps }) => (
               nextValue = event.target.checked;
             }
             form.setFieldValue(name, nextValue);
-            onChange(event);
           }}
         />
       );
