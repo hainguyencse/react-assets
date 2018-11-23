@@ -15,18 +15,20 @@ const ArrayFilterField = ({ name, label, keyOptions, typeOptions, arrayData, ...
           arrayData.map((item, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               <div style={{ width: 'calc(100% - 93px)', display: 'inline-block', marginRight: '10px', verticalAlign: 'top' }}>
-                <SelectField name={`${name}.${index}.key`} className="form-control" options={keyOptions} />
-                <SelectField name={`${name}.${index}.type`} className="form-control" options={typeOptions} />
+                <SelectField name={`${name}.${index}.key`} options={keyOptions} />
+                <SelectField name={`${name}.${index}.type`} options={typeOptions} />
                 <Field name={`${name}.${index}.value`} className="form-control" />
               </div>
-              <Button
-                onClick={() => arrayHelpers.remove(index)}
-                displayType={'danger'}
-                data-toogle="tooltip"
-                title={'Remove'}
-              >
-                <i className="fa fa-trash-o" />
-              </Button>
+              <div className="pull-right">
+                <Button
+                  onClick={() => arrayHelpers.remove(index)}
+                  displayType={'danger'}
+                  data-toogle="tooltip"
+                  title={'Remove'}
+                  >
+                  <i className="fa fa-trash-o" />
+                </Button>
+              </div>
             </div>
           ))
         }
