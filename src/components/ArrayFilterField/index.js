@@ -6,6 +6,20 @@ import Button from '../Button';
 import InputField from '../InputField';
 import SelectField from '../SelectField';
 
+const renderFieldValue = (item, keyOptions, name) => {
+  const selectedOption = keyOptions.filter(option => option.value === item.key);
+  if (selectedOption.length > 0 && selectedOption[0].type === 'select') {
+    return (
+      <SelectField name={name} options={selectedOption[0].subOptions} className="col-sm-4" />
+    );
+  }
+  return (
+    <div className="col-sm-4">
+      <InputField name={name} />
+    </div>
+  );
+}
+
 const ArrayFilterField = ({ name, label, keyOptions, typeOptions, arrayData, ...inputProps }) => (
   <FieldArray
     name={name}
@@ -19,16 +33,14 @@ const ArrayFilterField = ({ name, label, keyOptions, typeOptions, arrayData, ...
                 <div className="row">
                   <SelectField name={`${name}.${index}.key`} options={keyOptions} className="col-sm-4" />
                   <SelectField name={`${name}.${index}.type`} options={typeOptions} className="col-sm-3" />
-                  <div className="col-sm-4">
-                    <InputField name={`${name}.${index}.value`} />
-                  </div>
+                  {renderFieldValue(item, keyOptions, name.concat('.').concat(index).concat('.').concat('value'))}
                   <div className="col-sm-1">
                     <Button
                       onClick={() => arrayHelpers.remove(index)}
                       displayType={'danger'}
                       data-toogle="tooltip"
                       title={'Remove'}
-                      >
+                    >
                       <i className="fa fa-trash-o" />
                     </Button>
                   </div>

@@ -4,20 +4,27 @@ import { Formik, Form } from 'formik';
 import { action } from '@storybook/addon-actions';
 import ArrayFilterField from '.';
 
-const arrayFilterData = [
-  { key: 'status', type: '', value: 'Confirmed' }
+const statusOptions = [
+  { value: 'pending', label: 'Pending' },
+  { value: 'confirmed', label: 'Confirmed' },
 ];
 export const keyOptions = [
-  { value: 'status', label: 'Status' },
-  { value: 'trip_type', label: 'Trip Type' },
-  { value: 'start_date', label: 'Travel date' },
-  { value: 'user', label: 'Localguide' },
-  { value: 'traveller', label: 'Traveller' },
+  { value: 'status', label: 'Status', type: 'select', subOptions: statusOptions },
+  { value: 'trip_type', label: 'Trip Type', type: 'input' },
+  { value: 'start_date', label: 'Travel date', type: 'input' },
+  { value: 'user', label: 'Localguide', type: 'input' },
+  { value: 'traveller', label: 'Traveller', type: 'input' },
 ];
+
 export const typeOptions = [
   { value: '', label: '=' },
   { value: '__gte', label: '>=' },
   { value: '__lte', label: '<=' }
+];
+
+const arrayData = [
+  { key: 'status', type: '', value: 'pending' },
+  { key: 'user', type: '', value: '3077' }
 ];
 
 const FilterForm = ({
@@ -26,7 +33,7 @@ const FilterForm = ({
   <Formik
     enableReinitialize
     initialValues={{
-      filter: arrayFilterData,
+      filter: arrayData,
     }}
     onSubmit={onSubmit}
   >
@@ -50,7 +57,7 @@ export default [
   {
     title: 'Array Filter',
     component: <FilterForm
-      arrayFilterData={arrayFilterData}
+      arrayData={arrayData}
       keyOptions={keyOptions}
       typeOptions={typeOptions}
     />,
