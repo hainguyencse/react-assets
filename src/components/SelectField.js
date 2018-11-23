@@ -23,7 +23,7 @@ export const customSelectStyles = {
   },
 };
 
-const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChange, options, isMulti }) => (
+const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChange, options, isMulti, className }) => (
   <Field
     name={name}
     validate={validate}
@@ -42,7 +42,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
       }
 
       return (
-        <div className="form-group">
+        <div className={className}>
           {label ? <label>{label}</label> : null}
           <Select
             {...restField}
