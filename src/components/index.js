@@ -8,6 +8,7 @@ import ButtonOutline from './ButtonOutline';
 import CheckBox from './CheckBox';
 import CheckBoxGroup from './CheckBoxGroup';
 import DatePickerField from './DatePickerField';
+import ArrayFilterField from './ArrayFilterField';
 import Input from './Input';
 import Modal from './Modal';
 import Pagination from './Pagination';
