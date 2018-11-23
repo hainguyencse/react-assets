@@ -15,11 +15,16 @@ const CheckboxField = ({ name, validate, value, ...checkboxProps }) => (
         <Checkbox
           {...checkboxProps}
           {...restField}
-          onChange={() => {
-            const nextValue = !field.value ? value : undefined;
+          onChange={(event) => {
+            let nextValue;
+            if (value) {
+              nextValue = !field.value ? value : undefined;
+            } else {
+              nextValue = event.target.checked;
+            }
             form.setFieldValue(name, nextValue);
+            onChange(event);
           }}
-          checked={field.value}
         />
       );
     }}

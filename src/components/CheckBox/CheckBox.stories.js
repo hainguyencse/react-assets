@@ -19,7 +19,7 @@ export default [
         {
           ({ isSubmitting, isValid, values }) => (
             <Form>
-              <CheckboxField label="Checkbox 4" name="checkbox4" value="check4" />
+              <CheckboxField label="Checkbox 4" name="checkbox4" />
               <br /><br />
               <div style={{ textAlign: 'right' }}>
                 <Button className="btn  btn-primary" type="submit">Generate</Button>
