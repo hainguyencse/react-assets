@@ -23,12 +23,12 @@ export const customSelectStyles = {
   },
 };
 
-const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChange, options, isMulti, className }) => (
+const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChange, options, isMulti, className, onChange }) => (
   <Field
     name={name}
     validate={validate}
     render={({ field, form }) => {
-      const { onChange, value, ...restField } = field;
+      const { value, ...restField } = field;
       const { setFieldValue } = form;
       const { errors, touched } = form;
       let selectedValue = null;
@@ -58,6 +58,9 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
                 } else {
                   setFieldValue(name, valueObj.value);
                 }
+              }
+              if (onChange) {
+                onChange(valueObj, actionObj);
               }
             }}
             onInputChange={onInputChange}
