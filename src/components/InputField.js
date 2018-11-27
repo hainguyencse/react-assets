@@ -13,6 +13,12 @@ const InputField = ({ name, validate, ...inputProps }) => (
         message={errors[name] && touched[name] ? errors[name] : ''}
         {...inputProps}
         {...field}
+        onChange={(event) => {
+          field.onChange(event);
+          if (inputProps.onChange) {
+            inputProps.onChange(event);
+          }
+        }}
       />
     )}
   />
