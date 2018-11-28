@@ -3,7 +3,6 @@ import { configure, addDecorator, storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 const req = require.context('../src/components', true, /\.stories\.js$/);
-
 const compNameRegex = /\.\/(.+)\//;
 
 function loadStories() {
