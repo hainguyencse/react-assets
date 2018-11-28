@@ -34,6 +34,7 @@ import Rating from './components/Rating';
 import WYSIWYGField from './components/WYSIWYGField';
 import MarkdownField from './components/MarkdownField';
 import Status from './components/Status';
+import FroalaField from './components/FroalaField';
 
 export {
   Alert,
@@ -72,4 +73,5 @@ export {
   WYSIWYGField,
   MarkdownField,
   Status,
+  FroalaField,
 };
