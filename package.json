@@ -46,6 +46,7 @@
     "react": "^16.4.2",
     "react-datepicker": "^1.8.0",
     "react-dom": "^16.4.2",
+    "react-froala-wysiwyg": "^2.9.1",
     "react-router-dom": "^4.3.1",
     "react-select": "^2.1.0",
     "simplemde": "^1.11.2",
