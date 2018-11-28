@@ -14,7 +14,6 @@ const InputField = ({ name, validate, ...inputProps }) => (
         {...inputProps}
         {...field}
         onChange={(event) => {
-          field.onChange(event);
           if (inputProps.onChange) {
             inputProps.onChange(event);
           }
