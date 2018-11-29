@@ -21,7 +21,7 @@ export default [
           {
             ({ isSubmitting, isValid, values }) => (
               <Form>
-                <TimeInputField name="time" placeholder="HH:MM" />
+                <TimeInputField label="Cut off Time" name="time" placeholder="HH:MM" />
                 <br /><br />
                 <div style={{ textAlign: 'right' }}>
                   <Button className="btn  btn-primary" type="submit">Submit</Button>

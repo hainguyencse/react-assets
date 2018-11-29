@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { Field } from 'formik';
 import TimeInput from 'react-time-input';
 
-const TimeInputField = ({ name, validate, mountFocus, ...inputProps }) => (
+const TimeInputField = ({ name, label, validate, mountFocus, ...inputProps }) => (
   <Field
     name={name}
     validate={validate}
     render={({ field, form: { errors, touched, setFieldValue } }) => (
-      <div>
+      <div className="form-horizontal form-group">
+        <label htmlFor="input">{label}</label>
         <TimeInput
           initTime={field.value}
           mountFocus
+          className="form-control"
           onTimeChange={(val) => {
             setFieldValue(name, val);
           }}
