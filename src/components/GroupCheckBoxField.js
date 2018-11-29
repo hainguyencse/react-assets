@@ -7,7 +7,7 @@ import Checkbox from './CheckBox';
 /*
 * Group checkbox field use to collect all checkbox is same name
 * */
-const GroupCheckboxField = ({ name, validate, value, ...checkboxProps }) => (
+const GroupCheckboxField = ({ gName, name, validate, value, ...checkboxProps }) => (
   <Field
     name={name}
     validate={validate}
@@ -20,13 +20,14 @@ const GroupCheckboxField = ({ name, validate, value, ...checkboxProps }) => (
           {...restField}
           onChange={(event) => {
             const nextValue = !field.value ? value : undefined;
-            let formValue = form.values[name] || [];
+            let formValue = form.values[gName] || [];
             if (nextValue) {
               formValue.push(nextValue);
             } else {
               formValue = formValue.filter(item => item !== value);
             }
-            form.setFieldValue(name, formValue);
+            form.setFieldValue(name, nextValue);
+            form.setFieldValue(gName, formValue);
           }}
         />
       );
