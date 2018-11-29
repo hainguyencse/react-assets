@@ -15,6 +15,7 @@ const TimeInputField = ({ name, validate, mountFocus, ...inputProps }) => (
           onTimeChange={(val) => {
             setFieldValue(name, val);
           }}
+          {...inputProps}
         />
         {errors[name] && touched[name]
           ? (
