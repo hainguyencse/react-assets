@@ -20,7 +20,13 @@ const GroupCheckboxField = ({ gName, name, validate, value, ...checkboxProps }) 
           onChange={(event) => {
             const nextValue = !field.value ? value : undefined;
             let formValue = form.values[gName] || [];
-            if (nextValue) {
+            if (checkboxProps.checked) {
+              if (formValue.indexOf(value) >= 0) {
+                formValue = formValue.filter(item => item !== value);
+              } else {
+                formValue.push(nextValue);
+              }
+            } else if (nextValue) {
               formValue.push(nextValue);
             } else {
               formValue = formValue.filter(item => item !== value);

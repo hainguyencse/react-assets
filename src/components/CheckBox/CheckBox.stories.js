@@ -17,7 +17,6 @@ export default [
       <Formik
         initialValues={{
           checkbox: ['2'],
-          checkbox6: '2'
         }}
         enableReinitialize
         onSubmit={(values) => { console.log('values', values); }}
