@@ -20,6 +20,7 @@ import Listings from './Listings';
 import TextArea from './TextArea';
 import Breadcrumb from './Breadcrumb';
 import Tooltip from './Tooltip';
+import TimeInputField from './TimeInputField';
 
 export {
   Avatar,
@@ -42,5 +43,6 @@ export {
   Listings,
   TextArea,
   Breadcrumb,
-  Tooltip
+  Tooltip,
+  TimeInputField,
 };
