@@ -35,6 +35,7 @@ import WYSIWYGField from './components/WYSIWYGField';
 import MarkdownField from './components/MarkdownField';
 import Status from './components/Status';
 import FroalaField from './components/FroalaField';
+import GroupCheckboxField from './components/GroupCheckBoxField';
 
 export {
   Alert,
@@ -60,6 +61,7 @@ export {
   Breadcrumb,
   Tooltip,
   CheckboxField,
+  GroupCheckboxField,
   CreateableSelectField,
   InputField,
   SelectField,
