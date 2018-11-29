@@ -13,7 +13,12 @@ const GroupCheckboxField = ({ gName, name, validate, value, ...checkboxProps }) 
     validate={validate}
     render={({ field, form }) => {
       const { onChange, ...restField } = field;
-
+      if (checkboxProps.checked) {
+        const formValue = form.values[gName] || [];
+        formValue.push(value);
+        form.setFieldValue(name, value);
+        form.setFieldValue(gName, formValue);
+      }
       return (
         <Checkbox
           {...checkboxProps}
