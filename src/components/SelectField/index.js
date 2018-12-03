@@ -42,7 +42,7 @@ const SelectField = ({ name, validate, label, isDisabled, isLoading, onInputChan
       }
 
       return (
-        <div className={className}>
+        <div className={className || 'form-horizontal form-group'}>
           {label ? <label>{label}</label> : null}
           <Select
             {...restField}
