@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
 
 class FroalaField extends Component {
   render() {
-    const { name, validate, label, ...restProps } = this.props;
+    const { name, validate, label, sub, ...restProps } = this.props;
     return (
       <Field
         name={name}
@@ -21,7 +21,7 @@ class FroalaField extends Component {
 
           return (
             <div className="form-horizontal form-group">
-              {label ? <label>{label}</label> : null}
+              {label ? <label>{label} <span className="text-muted" style={{ fontWeight: 'normal' }}>{sub}</span></label> : null}
               {
                 FroalaEditor
                   ? (

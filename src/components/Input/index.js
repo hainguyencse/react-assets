@@ -30,12 +30,7 @@ const Input = ({
   };
 
   const renderLabel = () => (
-    label
-      ? (
-        <label htmlFor="input">
-          {label}
-        </label>
-      ) : null
+    label ? <label>{label} <span className="text-muted" style={{ fontWeight: 'normal' }}>{sub}</span></label> : null
   );
 
   const renderHelpBlock = () => (
