@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
 
 class FroalaField extends Component {
   render() {
-    const { name, validate, label, sub, ...restProps } = this.props;
+    const { name, validate, label, sub, notes, ...restProps } = this.props;
     return (
       <Field
         name={name}
@@ -38,6 +38,7 @@ class FroalaField extends Component {
                     <span className="help-block">{errors[name]}</span>
                   </div>
                 ) : null}
+              {notes ? <div className="text-muted">{notes}</div> : null }
             </div>
           );
         }}
