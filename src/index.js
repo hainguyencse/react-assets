@@ -9,6 +9,7 @@ import ButtonGroup from './components/ButtonGroup';
 import CheckBox from './components/CheckBox';
 import CheckBoxGroup from './components/CheckBoxGroup';
 import DatePickerField from './components/DatePickerField';
+import DateField from './components/DateField';
 import Input from './components/Input';
 import Modal from './components/Modal';
 import Pagination from './components/Pagination';
@@ -51,6 +52,7 @@ export {
   CheckBox,
   CheckBoxGroup,
   DatePickerField,
+  DateField,
   Input,
   Modal,
   Pagination,
