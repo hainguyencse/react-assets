@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import DatePicker from 'react-datepicker';
 
 class DateField extends Component {
@@ -18,7 +19,7 @@ class DateField extends Component {
           const { isDefaultHeader } = this.props;
           let props = {
             ...this.props,
-            selected: value,
+            selected: value || moment(),
             onChange: (date) => { setFieldValue(name, date); }
           };
           if (!isDefaultHeader) {
