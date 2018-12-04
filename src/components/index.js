@@ -14,6 +14,7 @@ import Modal from './Modal';
 import Pagination from './Pagination';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
+import RadioGroupField from './GroupCheckBoxField';
 import Select from './Select';
 import Table from './Table';
 import Listings from './Listings';
@@ -45,4 +46,5 @@ export {
   Breadcrumb,
   Tooltip,
   TimeInputField,
+  RadioGroupField,
 };

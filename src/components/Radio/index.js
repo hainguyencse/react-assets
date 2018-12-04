@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const Radio = ({ label, checked, onChange, disabled, ...radioProps }) => (
   <div className="radio">
     <label>
-      <input 
-        type="radio" 
-        checked={checked} 
-        onChange={onChange} 
-        disabled={disabled} 
+      <input
+        type="radio"
+        checked={checked}
+        onChange={onChange}
+        disabled={disabled}
         {...radioProps}
       />
       {label}

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import Radio from "../Radio";
 
-const RadioGroup = ({ options, onChange, selected }) => {
-  const handleRadioChange = (id) => {
-    onChange(id);
+const RadioGroup = ({ options, onChange, selectedValue }) => {
+  const handleRadioChange = (value) => {
+    onChange(value);
   };
 
   return (
@@ -14,9 +14,10 @@ const RadioGroup = ({ options, onChange, selected }) => {
         <Radio
           key={option.id}
           label={option.label}
-          checked={option.id === selected}
+          checked={option.value === selectedValue}
           disabled={option.disabled}
-          onChange={handleRadioChange.bind(this, option.id)}
+          value={option.value}
+          onChange={handleRadioChange.bind(this, option.value)}
         />
       ))}
     </div>
@@ -29,13 +30,11 @@ RadioGroup.propTypes = {
     label: PropTypes.string,
     disabled: PropTypes.bool,
   })),
-  selected: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 RadioGroup.defaultProps = {
   options: [],
-  selected: '',
   onChange: () => {},
 };
 

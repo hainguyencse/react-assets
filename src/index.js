@@ -14,6 +14,7 @@ import Modal from './components/Modal';
 import Pagination from './components/Pagination';
 import Radio from './components/Radio';
 import RadioGroup from './components/RadioGroup';
+import RadioGroupField from './components/RadioGroupField';
 import Select from './components/Select';
 import Table from './components/Table';
 import Listings from './components/Listings';
@@ -55,6 +56,7 @@ export {
   Pagination,
   Radio,
   RadioGroup,
+  RadioGroupField,
   Select,
   Table,
   Listings,
