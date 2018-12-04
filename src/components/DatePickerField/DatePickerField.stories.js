@@ -5,6 +5,6 @@ import DatePickerField from '.';
 export default [
   {
     title: 'Date Picker',
-    component: <DatePickerField inline/>, 
+    component: <DatePickerField minDate={new Date()} />,
   }
 ];
