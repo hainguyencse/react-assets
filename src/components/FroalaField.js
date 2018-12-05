@@ -32,9 +32,9 @@ class FroalaField extends Component {
                       }}
                     />) : null
               }
-              {errors[name] && touched[name]
+              {errors[name]
                 ? (
-                  <div className="form-horizontal form-group has-error">
+                  <div className="has-error" style={{ color: '#dd4b39' }}>
                     <span className="help-block">{errors[name]}</span>
                   </div>
                 ) : null}

@@ -9,7 +9,7 @@ import GroupCheckboxField from '../GroupCheckBoxField';
 export default [
   {
     title: 'Demo',
-    component: 
+    component:
     <div>
       <CheckBox label="Checkbox 1" name="checkbox1" checked></CheckBox>
       <CheckBox label="Checkbox 2"></CheckBox>
