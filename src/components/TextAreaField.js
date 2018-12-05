@@ -7,10 +7,13 @@ const TextAreaField = ({ name, validate, ...textAreaProps }) => (
   <Field
     name={name}
     validate={validate}
-    render={({ field }) => (
+    render={({ field, form }) => (
       <TextArea
         {...textAreaProps}
         {...field}
+        name={name}
+        errors={form.errors}
+        touched={form.touched}
       />
     )}
   />

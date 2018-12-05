@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = ({ label, notes, sub, ...textAreaProps }) => (
+const TextArea = ({ label, notes, sub, name, errors, touched, ...textAreaProps }) => (
   <div className="form-group">
     {label ? <label>{label} <span className="text-muted" style={{ fontWeight: 'normal' }}>{sub}</span></label> : null}
     <textarea
@@ -9,6 +9,12 @@ const TextArea = ({ label, notes, sub, ...textAreaProps }) => (
       {...textAreaProps}
       style={{ resize: 'vertical' }}
     />
+    {errors[name] && touched[name]
+      ? (
+        <div className="form-horizontal form-group has-error">
+          <span className="help-block">{errors[name]}</span>
+        </div>
+      ) : null}
     {notes ? <div className="text-muted">{notes}</div> : null }
   </div>
 );
