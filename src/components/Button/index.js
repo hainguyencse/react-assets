@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IconLoading } from '../Icon';
 
 /**
  * An ordinary button
  */
-const Button = ({ children, block, displayType, size, type, ...buttonProps }) => (
+const Button = ({ children, block, displayType, size, type, isLoading, ...buttonProps }) => (
   <button
     className={`btn ${block ? 'btn-block' : ''} btn-${displayType} ${buttonProps.disabled ? 'disabled' : ''} btn-${size}`}
     type={type}
     {...buttonProps}
   >
-    {children}
+    { isLoading ? <IconLoading /> : children }
   </button>
 );
 

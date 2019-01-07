@@ -44,9 +44,7 @@ export default class DatePickerField extends React.Component {
   }
 }
 
-DatePickerField.propTypes = {
-  
-};
+DatePickerField.propTypes = {};
 
 DatePickerField.defaultProps = {
   isDefaultHeader: true,
