@@ -10,10 +10,13 @@ const CheckboxField = ({ name, validate, value, ...checkboxProps }) => (
     validate={validate}
     render={({ field, form }) => {
       const { onChange, ...restField } = field;
-
+      const props = { ...checkboxProps };
+      if (field.value) {
+        props.checked = true;
+      }
       return (
         <Checkbox
-          {...checkboxProps}
+          {...props}
           {...restField}
           onChange={(event) => {
             let nextValue;
