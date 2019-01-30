@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, FieldArray } from 'formik';
-import Button from './Button';
+import { FieldArray } from 'formik';
+import Button from '../Button';
 
 const ArrayObjectField = ({ name, label, arrayData, renderObject, ...inputProps }) => (
     <FieldArray
