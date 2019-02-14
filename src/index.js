@@ -40,6 +40,7 @@ import Status from './components/Status';
 import FroalaField from './components/FroalaField';
 import GroupCheckboxField from './components/GroupCheckBoxField';
 import TimeInputField from './components/TimeInputField';
+import FileInputField from './components/FileInputField';
 
 export {
   Alert,
@@ -84,4 +85,5 @@ export {
   Status,
   FroalaField,
   TimeInputField,
+  FileInputField
 };
