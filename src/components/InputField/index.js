@@ -17,6 +17,10 @@ const InputField = ({ name, validate, ...inputProps }) => (
           if (inputProps.onChange) inputProps.onChange(e);
           field.onChange(e);
         }}
+        onBlur={(e) => {
+          if (inputProps.onBlur) inputProps.onBlur(e);
+          field.onBlur(e);
+        }}
       />
     )}
   />
