@@ -41,6 +41,8 @@ import FroalaField from './components/FroalaField';
 import GroupCheckboxField from './components/GroupCheckBoxField';
 import TimeInputField from './components/TimeInputField';
 import FileInputField from './components/FileInputField';
+import Tabs from './components/Tabs';
+import TabContent from './components/Tabs/TabContent';
 
 export {
   Alert,
@@ -85,5 +87,7 @@ export {
   Status,
   FroalaField,
   TimeInputField,
-  FileInputField
+  FileInputField,
+  Tabs,
+  TabContent,
 };
