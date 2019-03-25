@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 const PRIMARY = '#3c8dbc';
+const FOCUS_COLOR = '#cfebfc';
 const INPUT_BORDER = '#d2d6de';
 const INPUT_TEXT_COLOR = '#555';
 
@@ -12,13 +13,13 @@ export const customSelectStyles = {
     ...styles,
     backgroundColor: 'white',
     borderRadius: 0,
-    borderColor: isFocused || isSelected ? PRIMARY : INPUT_BORDER,
+    borderColor: isSelected ? PRIMARY : INPUT_BORDER,
   }),
   option: (styles, { isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isFocused || isSelected ? PRIMARY : 'white',
-      color: isFocused || isSelected ? 'white' : INPUT_TEXT_COLOR,
+      backgroundColor:  isSelected ? PRIMARY : isFocused ? FOCUS_COLOR : 'white',
+      color:  isSelected ? 'white' : INPUT_TEXT_COLOR,
     };
   },
 };
