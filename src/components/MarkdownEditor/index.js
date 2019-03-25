@@ -40,8 +40,9 @@ class MarkdownEditor extends React.Component {
 
   componentDidUpdate() {
     const { value } = this.props;
+    // value can be undefined --> check that case
     // only update the value of the input according to the external value if it is not typed
-    if (this.simplemde.codemirror && !this._typed) {
+    if (value && this.simplemde.codemirror && !this._typed) {
       this.simplemde.codemirror.getDoc().setValue(value);
     }
   }
