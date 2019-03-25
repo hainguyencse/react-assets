@@ -22,7 +22,7 @@ class MarkdownEditor extends React.Component {
           'heading-1', 'heading-2', 'heading-3', '|',
           'unordered-list', 'ordered-list', '|',
           'link', 'image', '|',
-          'preview',
+          'preview', 'side-by-side', 'fullscreen',
         ],
         spellChecker: false,
         autofocus: autoFocus,
