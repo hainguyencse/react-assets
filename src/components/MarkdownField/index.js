@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'formik';
 
-import MarkdownEditor from './MarkdownEditor';
+import MarkdownEditor from '../MarkdownEditor';
 
 const MarkdownField = ({ name, validate, ...editorProps }) => (
   <Field
