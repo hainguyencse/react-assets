@@ -91,10 +91,10 @@ class Box extends React.Component {
   }
 
   render() {
-    const { noHeader } = this.props;
+    const { noHeader, displayType } = this.props;
 
     return (
-      <div className="box">
+      <div className={`box box-${displayType}`}>
         {noHeader ? null : this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}
@@ -113,6 +113,7 @@ Box.propTypes = {
   noHeader: PropTypes.bool,
   body: PropTypes.node,
   collapsible: PropTypes.bool,
+  displayType: PropTypes.oneOf(['default', 'primary', 'info', 'warning', 'success', 'danger']),
 };
 
 Box.defaultProps = {
@@ -124,6 +125,7 @@ Box.defaultProps = {
   noHeader: false,
   body: null,
   collapsible: false,
+  displayType: 'default',
 };
 
 export default Box;
