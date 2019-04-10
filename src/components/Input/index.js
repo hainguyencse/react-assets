@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 /**
  * Input wraps the html input with additional functions
@@ -10,48 +11,76 @@ import PropTypes from 'prop-types';
  * @returns {*}
  * @constructor
  */
-const Input = ({
-  label, displayType, message, only, sub, ...inputProps
-}) => {
-  const renderLabelIcon = () => {
-    switch (displayType) {
-      case 'success': {
-        return <i className="fa fa-check" />;
-      }
-      case 'warning': {
-        return <i className="fa fa-bell-o" />;
-      }
-      case 'error': {
-        return <i className="fa fa-times-circle-o" />;
-      }
-      default:
-        return null;
-    }
+class Input extends React.Component {
+  handleInputChange = (e) => {
+    const { formatter, onChange } = this.props;
+    const newEvent = { ...e };
+    newEvent.target.value = formatter.unformat(e.target.value); // reverse effect of format
+    onChange(newEvent);
   };
 
-  const renderLabel = () => (
-    label ? <label>{label} <span className="text-muted" style={{ fontWeight: 'normal' }}>{sub}</span></label> : null
-  );
+  renderLabel = () => {
+    const { label, sub } = this.props;
+    if (label) {
+      return (
+        <label>
+          {label}{' '}
+          <span className="text-muted" style={{ fontWeight: 'normal' }}>
+            {sub}
+          </span>
+        </label>
+      );
+    }
+    return null;
+  };
 
-  const renderHelpBlock = () => (
-    message ? <span className={`help-block col-sm-${label ? 10 : 12}`}>{message}</span> : null
-  );
+  renderHelpBlock = () => {
+    const { message, label } = this.props;
+    if (message) {
+      return (
+        <span className={`help-block col-sm-${label ? 10 : 12}`}>
+          {message}
+        </span>
+      );
+    }
+    return null;
+  };
 
-  // TODO: unique id for input
-  return (
-    <div className={`form-horizontal form-group ${displayType !== 'default' ? `has-${displayType}` : ''} ${only ? 'noMargin' : ''}`}>
-      {renderLabel()}
-      <input
-        id="input"
-        className="form-control"
-        {...inputProps}
-      />
-      <div className="row">
-        {renderHelpBlock()}
+  renderInput = (inputProps) => {
+    const { formatter } = this.props;
+
+    // if user does not supply format function
+    if (!formatter) { 
+      return (
+        <input id="input" className="form-control" {...inputProps} />
+      );
+    }
+
+    const { value, ...rest } = inputProps;
+    return <input id="input" className="form-control" value={formatter.format(value)} {...rest} onChange={this.handleInputChange} />;
+  };
+
+  render() {
+    const {
+      label,
+      displayType,
+      message,
+      only,
+      sub,
+      ...inputProps
+    } = this.props;
+
+    return (
+      <div
+        className={cx('form-horizontal form-group', displayType !== 'default' && `has-${displayType}`, only && 'noMargin')}
+      >
+        {this.renderLabel()}
+        {this.renderInput(inputProps)}
+        <div className="row">{this.renderHelpBlock()}</div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Input.propTypes = {
   /**
@@ -66,6 +95,13 @@ Input.propTypes = {
    * Additional message to display under the input
    */
   message: PropTypes.string,
+  /**
+   * Format/un-format the input (e.g. for numeric purpose)
+   */
+  formatter: PropTypes.shape({
+    format: PropTypes.func,
+    unformat: PropTypes.func,
+  })
 };
 
 Input.defaultProps = {
