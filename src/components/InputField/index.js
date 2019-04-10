@@ -14,7 +14,7 @@ class InputField extends React.Component {
   unformat = value => value && value.toString().replace(/[,]/g, '');
 
   render() {
-    const { name, validate, isNumeric, ...inputProps } = this.props;
+    const { name, validate, isCommaSeparated, ...inputProps } = this.props;
 
     return (
       <Field
@@ -34,7 +34,7 @@ class InputField extends React.Component {
               if (inputProps.onBlur) inputProps.onBlur(e);
               field.onBlur(e);
             }}
-            formatter={isNumeric && { format: this.format, unformat: this.unformat }}
+            formatter={isCommaSeparated && { format: this.format, unformat: this.unformat }}
           />
         )}
       />
@@ -46,13 +46,13 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   validate: PropTypes.func,
   /**
-   * isNumeric determines whether to format the number value or not
+   * isCommaSeparated determines whether to separate the numeric value by comma
    */
-  isNumeric: PropTypes.bool
+  isCommaSeparated: PropTypes.bool
 };
 
 InputField.defaultProps = {
-  isNumeric: false
+  isCommaSeparated: false
 };
 
 export default InputField;

@@ -42,7 +42,7 @@ export default [
                 <InputField
                   name="numeric-field"
                   label="Numeric field"
-                  isNumeric
+                  isCommaSeparated
                 />
                 <div style={{ textAlign: 'right' }}>
                   <Button className="btn btn-primary" type="submit">Submit</Button>
