@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 /**
  * Input wraps the html input with additional functions
@@ -71,9 +72,7 @@ class Input extends React.Component {
 
     return (
       <div
-        className={`form-horizontal form-group ${
-          displayType !== 'default' ? `has-${displayType}` : ''
-        } ${only ? 'noMargin' : ''}`}
+        className={cx('form-horizontal form-group', displayType !== 'default' && `has-${displayType}`, only && 'noMargin')}
       >
         {this.renderLabel()}
         {this.renderInput(inputProps)}
