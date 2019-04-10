@@ -26,6 +26,7 @@ import CheckboxField from './components/CheckboxField';
 import CreateableSelectField from './components/CreatableSelectField';
 import CreatableMultiSelectField from './components/CreatableMultiSelectField';
 import InputField from './components/InputField';
+import NumericInputField from './components/NumericInputField';
 import ArrayField from './components/ArrayField';
 import ArrayFilterField from './components/ArrayFilterField';
 import ArrayObjectField from './components/ArrayObjectField';
@@ -73,6 +74,7 @@ export {
   GroupCheckboxField,
   CreateableSelectField,
   InputField,
+  NumericInputField,
   SelectField,
   AsyncSelectField,
   CreatableMultiSelectField,
