@@ -67,12 +67,14 @@ class Input extends React.Component {
       message,
       only,
       sub,
-      ...inputProps
+      className,
+      ...inputProps, 
     } = this.props;
 
     return (
       <div
-        className={cx('form-horizontal form-group', displayType !== 'default' && `has-${displayType}`, only && 'noMargin')}
+        className={cx('form-horizontal form-group', className, displayType !== 'default' && `has-${displayType}`, only && 'noMargin')}
+        {...inputProps}
       >
         {this.renderLabel()}
         {this.renderInput(inputProps)}
