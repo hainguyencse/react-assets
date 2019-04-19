@@ -91,10 +91,10 @@ class Box extends React.Component {
   }
 
   render() {
-    const { noHeader, displayType } = this.props;
+    const { noHeader, displayType, innerRef } = this.props;
 
     return (
-      <div className={`box box-${displayType}`}>
+      <div className={`box box-${displayType}`} ref={innerRef}>
         {noHeader ? null : this.renderHeader()}
         {this.renderBody()}
         {this.renderFooter()}
@@ -128,4 +128,8 @@ Box.defaultProps = {
   displayType: 'default',
 };
 
-export default Box;
+const BoxWithRef = React.forwardRef((props, ref) => (
+  <Box {...props} innerRef={ref} />
+));
+
+export default BoxWithRef;
