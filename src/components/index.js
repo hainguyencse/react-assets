@@ -22,6 +22,7 @@ import TextArea from './TextArea';
 import Breadcrumb from './Breadcrumb';
 import Tooltip from './Tooltip';
 import TimeInputField from './TimeInputField';
+import CreatableSelectField from './CreatableSelectField';
 
 export {
   Avatar,
@@ -47,4 +48,5 @@ export {
   Tooltip,
   TimeInputField,
   RadioGroupField,
+  CreatableSelectField
 };
