@@ -44,6 +44,7 @@ import TimeInputField from './components/TimeInputField';
 import FileInputField from './components/FileInputField';
 import Tabs from './components/Tabs';
 import TabContent from './components/Tabs/TabContent';
+import CreatableSelectField from './components/CreatableSelectField';
 
 export {
   Alert,
@@ -92,4 +93,5 @@ export {
   FileInputField,
   Tabs,
   TabContent,
+  CreatableSelectField
 };
