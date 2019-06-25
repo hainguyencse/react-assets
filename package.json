@@ -9,8 +9,7 @@
     "test": "jest",
     "clean": "rimraf dist build docs",
     "storybook": "start-storybook -p 9001 -c .storybook -s assets",
-    "export-storybook": "build-storybook -c .storybook -s assets -o docs",
-    "precommit": "npm test"
+    "export-storybook": "build-storybook -c .storybook -s assets -o docs"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^4.0.0-alpha.16",
