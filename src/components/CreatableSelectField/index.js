@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
-import CreatableSelect from 'react-select/lib/Creatable';
+import Creatable from 'react-select/creatable';
 
 const PRIMARY = '#3c8dbc';
 const FOCUS_COLOR = '#cfebfc';
@@ -63,7 +63,7 @@ class CreatableSelectField extends React.Component {
           return (
             <div className={className || 'form-horizontal form-group'}>
               {label ? <label>{label}</label> : null}
-              <CreatableSelect
+              <Creatable
                 {...restField}
                 isClearable
                 value={(values && values[name]) || null}
