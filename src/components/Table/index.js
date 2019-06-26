@@ -37,7 +37,7 @@ class Table extends React.Component {
 
   renderHeader() {
     const { hideHeader, selectable, actions, sortParams, columns } = this.props;
-
+    console.log(sortParams);
     let sortBy = '';
     let sortDirection = ASCENDING;
     if (sortParams) {

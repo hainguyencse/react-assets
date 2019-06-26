@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
-import CreatableSelect from 'react-select/lib/Creatable';
+import Creatable from 'react-select/creatable';
 
 
 const PRIMARY = '#3c8dbc';
@@ -36,7 +36,7 @@ const CreatableMultiSelectField = ({ name, validate, label, isDisabled, isLoadin
       return (
         <div className="form-group">
           {label ? <label>{label}</label> : null}
-          <CreatableSelect
+          <Creatable
             {...restField}
             value={value}
             isDisabled={isDisabled}
