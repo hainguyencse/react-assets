@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
-import AsyncSelect from 'react-select/lib/Async';
+import Async from 'react-select/async';
 
 
 const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions, isMulti }) => (
@@ -16,7 +16,7 @@ const AsyncSelectField = ({ name, validate, label, onInputChange, loadOptions, i
       return (
         <div className="form-group">
           {label ? <label>{label}</label> : null}
-          <AsyncSelect
+          <Async
             {...restField}
             value={value}
             isMulti={isMulti}
