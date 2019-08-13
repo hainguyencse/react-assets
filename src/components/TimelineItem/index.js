@@ -22,6 +22,10 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
           {action.body}
         </div> : null}
 
+        {action.extra_data ? <div className="timeline-body">
+          <pre>{action.extra_data}</pre>
+        </div> : null}
+
         {footer ? <div className="timeline-footer">
           {footer}
         </div> : null}
