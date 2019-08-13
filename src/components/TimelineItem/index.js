@@ -14,7 +14,7 @@ const TimelineItem = ({ action, body, footer, icon, iconColor }) => {
         <i className="fa" />
       }
       <div className="timeline-item" style={{ background: action.bgColor }}>
-        <span className="time"><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
+        <span className="time" title={action.time}><i className="fa fa-clock-o"/> {momentTime.fromNow(true)}</span>
         <div className="timeline-header" style={{ fontSize: '14px', border: 'none' }}>
           <strong>{action.user}</strong> {action.actionName} {action.target}
         </div>
